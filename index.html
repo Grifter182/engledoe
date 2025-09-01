@@ -42,7 +42,11 @@
             100% { transform: translateX(-50%); }
         }
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero.png');
+            /* * FIX: Replaced the local 'hero.png' with a placeholder image.
+             * The original file path couldn't be loaded, which caused the banner to appear empty.
+             * The z-index on the sticky header is correct for its functionality.
+            */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1920x1080/475569/f1f5f9?text=Guiding+Families+with+Care');
             background-size: cover;
             background-position: center;
         }
@@ -135,7 +139,7 @@
         <section id="about" class="py-20">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="https://placehold.co/600x400/a0aec0/4a5568?text=Our+Family" alt="WS Engledoe and Sons Team" class="rounded-lg shadow-2xl">
+                    <img src="family.png" alt="WS Engledoe and Sons Team" class="rounded-lg shadow-2xl">
                 </div>
                 <div>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">A Legacy of Care Since 1955</h2>
