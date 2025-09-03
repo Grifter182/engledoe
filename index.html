@@ -9,7 +9,8 @@
     <!-- Updated Google Fonts for a classic feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Fleur+De+Leah&family=Merriweather:wght@700&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <!-- Removed Fleur De Leah; added Ubuntu 600 (semibold) -->
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Merriweather:wght@700&family=Ubuntu:wght@500;600&display=swap" rel="stylesheet">
     <!-- Lucide icons for simple line icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -22,9 +23,10 @@
         .font-display {
             font-family: 'Merriweather', serif;
         }
-        /* Script font for the main hero banner heading */
+        /* Hero banner heading font changed to Ubuntu Semibold */
         .font-logo {
-            font-family: 'Fleur De Leah', cursive;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 600; /* Semibold */
         }
         /* Font for the footer credit */
         .font-credit {
@@ -235,10 +237,14 @@
                         </div>
                     </div>
                     <div class="mt-8 rounded-lg overflow-hidden shadow-lg">
-                        <!-- The image is wrapped in an anchor tag that links to Google Maps -->
-                        <a href="https://www.google.com/maps/search/?api=1&amp;query=12+Spencer+Road,+Salt+River,+Cape+Town,+7925" target="_blank" rel="noopener noreferrer">
-                            <img src="https://placehold.co/600x400/e2e8f0/4a5568?text=Map+to+12+Spencer+Road" alt="Map showing business location" class="w-full h-full object-cover">
-                        </a>
+                        <!-- Working embedded Google Map preview (no hyperlink) -->
+                        <iframe
+                          title="Map: 12 Spencer Road, Salt River, Cape Town, 7925"
+                          src="https://maps.google.com/maps?q=12%20Spencer%20Road,%20Salt%20River,%20Cape%20Town,%207925&z=15&output=embed"
+                          class="w-full h-64 md:h-96 rounded-lg shadow-lg border-0"
+                          loading="lazy"
+                          referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
                 </div>
                 <div>
