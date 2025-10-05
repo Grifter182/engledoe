@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - WS Engledoe and Sons Funerals</title>
+    <!-- Tailwind CSS for quick styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Elegant & Reverent Theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display for headings and Lato for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide icons for simple line icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Elegant & Reverent Color Palette */
+        :root {
+            --soft-cream: #FDFBF7;
+            --charcoal-grey: #343F4B;
+            --stone: #B2B2B2;
+            --muted-gold: #C0B283;
+        }
+        
+        /* Body font for readability */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--soft-cream);
+            color: var(--charcoal-grey);
+            scroll-behavior: smooth;
+        }
+        
+        /* Playfair Display for logo and main headings */
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Playfair Display for logo */
+        .font-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        /* Lato for navigation and UI elements */
+        .font-ui {
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Enhanced animations */
+        .fade-in {
+            animation: fadeIn 1.2s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Elegant button styles */
+        .btn-primary {
+            background-color: var(--charcoal-grey);
+            color: var(--soft-cream);
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2a3440;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 63, 75, 0.2);
+        }
+
+        /* Thank you page specific styles */
+        .thank-you-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--soft-cream) 0%, #f8f6f2 100%);
+        }
+
+        .thank-you-card {
+            background-color: var(--soft-cream);
+            border: 2px solid var(--muted-gold);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--muted-gold) 0%, #d4c79a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: checkPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes checkPulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 178, 131, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(192, 178, 131, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192, 178, 131, 0); }
+        }
+
+        .press-key-hint {
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="thank-you-card fade-in">
+            <div class="check-icon">
+                <i data-lucide="check" class="w-10 h-10 text-white"></i>
+            </div>
+            
+            <h1 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--charcoal-grey);">
+                Thank You
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-6 leading-relaxed" style="color: var(--charcoal-grey);">
+                Your message has been received with care and compassion.
+            </p>
+            
+            <p class="text-lg mb-8 leading-relaxed" style="color: var(--stone);">
+                Our team will respond to your inquiry within 24 hours. During urgent situations, please call our 24/7 support line at <a href="tel:+27824949852" class="font-semibold transition-colors" style="color: var(--charcoal-grey);" onmouseover="this.style.color='var(--muted-gold)'" onmouseout="this.style.color='var(--charcoal-grey)'">082 49 49 852</a>.
+            </p>
+
+            <div class="mb-8">
+                <a href="index.html" class="btn-primary px-8 py-4 rounded-full font-ui text-lg inline-flex items-center justify-center">
+                    <i data-lucide="home" class="w-5 h-5 mr-3"></i>
+                    Return to Home
+                </a>
+            </div>
+
+            <p class="text-sm press-key-hint" style="color: var(--stone);">
+                Press any key to return to our homepage
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for interactive components -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Any key press returns to home
+        document.addEventListener('keydown', function(event) {
+            window.location.href = 'index.html';
+        });
+
+        // Accessibility: Focus management
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-focus the return button for keyboard navigation
+            const returnButton = document.querySelector('a[href="index.html"]');
+            if (returnButton) {
+                returnButton.focus();
+            }
+        });
+    </script>
+</body>
+</html>
