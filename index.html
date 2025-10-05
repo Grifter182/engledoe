@@ -56,9 +56,53 @@
         }
         /* Hero background overlay */
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero.webp');
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('Hero.webp');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Enhanced animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Service card hover effects */
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Enhanced button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -89,75 +133,108 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-bg text-white py-20 md:py-32">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="font-logo text-7xl md:text-8xl mb-4">W. S. Engledoe &amp; Sons</h1>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto">Guiding Cape Town families since 1955</p>
+        <section class="hero-bg text-white py-24 md:py-40 min-h-screen flex items-center">
+            <div class="container mx-auto px-6 text-center fade-in">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="font-logo text-6xl md:text-8xl lg:text-9xl mb-6 leading-none">W. S. Engledoe &amp; Sons</h1>
+                    <p class="text-xl md:text-2xl lg:text-3xl mb-8 font-light opacity-90">Guiding Cape Town families since 1955</p>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 opacity-80 leading-relaxed">
+                        With dignity, compassion, and unwavering care, we honor the lives of those we've lost while supporting the families they leave behind.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
+                            <i data-lucide="phone" class="w-5 h-5 mr-3"></i>
+                            24/7 Support Line
+                        </a>
+                        <a href="#services" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg border border-white/30 transition-all duration-300">
+                            Our Services
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-20 bg-white">
+        <section id="services" class="py-24 bg-gradient-to-b from-white to-slate-50">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900">What We Offer</h2>
-                    <p class="text-slate-600 mt-2">Comprehensive services to honour your loved ones with dignity.</p>
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-4">What We Offer</h2>
+                    <p class="text-slate-600 text-lg max-w-2xl mx-auto">Comprehensive services designed to honour your loved ones with dignity, respect, and compassionate care.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Service Card 1: Burial Services -->
-                    <div class="bg-slate-50 p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
-                        <div class="bg-slate-800 text-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                            <i data-lucide="gem"></i>
+                    <div class="service-card bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl">
+                        <div class="bg-gradient-to-br from-slate-800 to-slate-600 text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                            <i data-lucide="gem" class="w-8 h-8"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-2">Burial Services</h3>
-                        <p class="text-slate-600 mb-2">Traditional and personalised burial arrangements conducted with the utmost dignity.</p>
-                        <p class="text-slate-600 text-sm">Our team assists with selecting a cemetery, arranging transportation, organising a graveside service and handling legal documentation.</p>
+                        <h3 class="font-display text-xl font-bold mb-3 text-slate-900">Burial Services</h3>
+                        <p class="text-slate-600 mb-3 leading-relaxed">Traditional and personalised burial arrangements conducted with the utmost dignity.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">Our team assists with selecting a cemetery, arranging transportation, organising a graveside service and handling legal documentation.</p>
                     </div>
                     <!-- Service Card 2: Cremation Services -->
-                    <div class="bg-slate-50 p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
-                        <div class="bg-slate-800 text-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                            <i data-lucide="flame"></i>
+                    <div class="service-card bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl">
+                        <div class="bg-gradient-to-br from-slate-800 to-slate-600 text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                            <i data-lucide="flame" class="w-8 h-8"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-2">Cremation Services</h3>
-                        <p class="text-slate-600 mb-2">Respectful cremation services with options for memorials and ash scattering.</p>
-                        <p class="text-slate-600 text-sm">We offer affordable and dignified cremations, with choices for direct cremation or a service, allowing ashes to be kept in an urn, scattered or placed in a columbarium.</p>
+                        <h3 class="font-display text-xl font-bold mb-3 text-slate-900">Cremation Services</h3>
+                        <p class="text-slate-600 mb-3 leading-relaxed">Respectful cremation services with options for memorials and ash scattering.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">We offer affordable and dignified cremations, with choices for direct cremation or a service, allowing ashes to be kept in an urn, scattered or placed in a columbarium.</p>
                     </div>
                     <!-- Service Card 3: Funeral Planning -->
-                    <div class="bg-slate-50 p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
-                        <div class="bg-slate-800 text-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                            <i data-lucide="calendar-check"></i>
+                    <div class="service-card bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl">
+                        <div class="bg-gradient-to-br from-slate-800 to-slate-600 text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                            <i data-lucide="calendar-check" class="w-8 h-8"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-2">Funeral Planning</h3>
-                        <p class="text-slate-600 mb-2">Thoughtful planning and coordination to ensure every detail is taken care of.</p>
-                        <p class="text-slate-600 text-sm">We manage every detail—venue booking, catering, transportation, floral arrangements and printed materials—ensuring a seamless, stress‑free experience.</p>
+                        <h3 class="font-display text-xl font-bold mb-3 text-slate-900">Funeral Planning</h3>
+                        <p class="text-slate-600 mb-3 leading-relaxed">Thoughtful planning and coordination to ensure every detail is taken care of.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">We manage every detail—venue booking, catering, transportation, floral arrangements and printed materials—ensuring a seamless, stress‑free experience.</p>
                     </div>
                     <!-- Service Card 4: Full Parlour Services -->
-                    <div class="bg-slate-50 p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
-                        <div class="bg-slate-800 text-white rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                            <i data-lucide="users"></i>
+                    <div class="service-card bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl">
+                        <div class="bg-gradient-to-br from-slate-800 to-slate-600 text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                            <i data-lucide="users" class="w-8 h-8"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-2">Full Parlour Services</h3>
-                        <p class="text-slate-600 mb-2">Complete arrangements, logistics and compassionate on‑the‑day care.</p>
-                        <p class="text-slate-600 text-sm">Our parlour team offers comprehensive coordination, compassionate support and customised arrangements, drawing on our professional expertise and personalised approach.</p>
+                        <h3 class="font-display text-xl font-bold mb-3 text-slate-900">Full Parlour Services</h3>
+                        <p class="text-slate-600 mb-3 leading-relaxed">Complete arrangements, logistics and compassionate on‑the‑day care.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">Our parlour team offers comprehensive coordination, compassionate support and customised arrangements, drawing on our professional expertise and personalised approach.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="family.webp" alt="WS Engledoe and Sons Team" class="rounded-lg shadow-2xl">
+        <section id="about" class="py-24 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+                        <img src="family.webp" alt="WS Engledoe and Sons Team - Vaughn Garnet & Garth Engledoe" class="w-full h-auto transition-transform duration-700 hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">A Legacy of Care Since 1955</h2>
-                    <p class="text-slate-600 mb-4 leading-relaxed">
-                        Rooted in Cape Town for generations, WS Engledoe &amp; Sons is a family‑run funeral home built on compassion, integrity and respect. Since 1955 we’ve been trusted to walk alongside families with quiet professionalism—caring for every detail so each farewell genuinely reflects the life it honours.
+                <div class="fade-in-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">A Legacy of Care Since 1955</h2>
+                    <p class="text-slate-600 mb-6 text-lg leading-relaxed">
+                        Rooted in Cape Town for generations, WS Engledoe &amp; Sons is a family‑run funeral home built on compassion, integrity and respect. Since 1955 we've been trusted to walk alongside families with quiet professionalism—caring for every detail so each farewell genuinely reflects the life it honours.
                     </p>
-                    <p class="text-slate-600 leading-relaxed">
+                    <p class="text-slate-600 mb-8 text-lg leading-relaxed">
                         From our base in Salt River, our experienced team offers calm, personalised guidance—whether you need immediate assistance or thoughtful planning for the days ahead. We uphold values of dignity, respect and compassion and provide tailored services to honour every life.
                     </p>
+                    <div class="flex items-center space-x-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-slate-900">70+</div>
+                            <div class="text-sm text-slate-600">Years of Service</div>
+                        </div>
+                        <div class="h-12 w-px bg-slate-300"></div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-slate-900">1000+</div>
+                            <div class="text-sm text-slate-600">Families Served</div>
+                        </div>
+                        <div class="h-12 w-px bg-slate-300"></div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-slate-900">4.7★</div>
+                            <div class="text-sm text-slate-600">Google Rating</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -215,54 +292,61 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-white">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">Contact &amp; Availability</h2>
-                    <p class="text-slate-600 mb-6">Our lines are open 24‑hours for support whenever you need it most. Please reach out for immediate assistance.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
+        <section id="contact" class="py-24 bg-gradient-to-b from-white to-slate-50">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
+                <div class="fade-in-up">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 mb-6">Contact &amp; Availability</h2>
+                    <p class="text-slate-600 mb-8 text-lg leading-relaxed">Our lines are open 24‑hours for support whenever you need it most. Please reach out for immediate assistance or to discuss your needs.</p>
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-start bg-white p-4 rounded-xl shadow-sm">
                             <i data-lucide="phone" class="w-6 h-6 text-slate-800 mr-4 mt-1 flex-shrink-0"></i>
                             <div>
-                                <span class="text-slate-600 block">082&nbsp;49&nbsp;49&nbsp;852</span>
+                                <div class="font-semibold text-slate-900 mb-1">24/7 Support Line</div>
+                                <a href="tel:+27824949852" class="text-slate-600 hover:text-slate-800 transition-colors">082&nbsp;49&nbsp;49&nbsp;852</a>
                             </div>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start bg-white p-4 rounded-xl shadow-sm">
                             <i data-lucide="mail" class="w-6 h-6 text-slate-800 mr-4 mt-1 flex-shrink-0"></i>
-                            <span class="text-slate-600">v.engledoe@gmail.com</span>
+                            <div>
+                                <div class="font-semibold text-slate-900 mb-1">Email Us</div>
+                                <a href="mailto:v.engledoe@gmail.com" class="text-slate-600 hover:text-slate-800 transition-colors">v.engledoe@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="flex items-start">
+                        <div class="flex items-start bg-white p-4 rounded-xl shadow-sm">
                             <i data-lucide="map-pin" class="w-6 h-6 text-slate-800 mr-4 mt-1 flex-shrink-0"></i>
-                            <span class="text-slate-600">12 Spencer Road, Salt River, Cape Town, 7925</span>
+                            <div>
+                                <div class="font-semibold text-slate-900 mb-1">Visit Our Location</div>
+                                <span class="text-slate-600">12 Spencer Road, Salt River, Cape Town, 7925</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-8 rounded-lg overflow-hidden shadow-lg">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
                         <!-- Working embedded Google Map preview (no hyperlink) -->
                         <iframe
                           title="Map: 12 Spencer Road, Salt River, Cape Town, 7925"
                           src="https://maps.google.com/maps?q=12%20Spencer%20Road,%20Salt%20River,%20Cape%20Town,%207925&z=15&output=embed"
-                          class="w-full h-64 md:h-96 rounded-lg shadow-lg border-0"
+                          class="w-full h-64 md:h-96 border-0"
                           loading="lazy"
                           referrerpolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
                 </div>
-                <div>
-                    <form class="bg-slate-50 p-8 rounded-lg shadow-lg">
-                        <h3 class="font-display text-2xl font-bold mb-6">Send us a Message</h3>
-                        <div class="mb-4">
-                            <label for="name" class="block text-slate-700 mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" class="w-full p-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-500 focus:outline-none">
+                <div class="fade-in-up">
+                    <form class="bg-white p-10 rounded-2xl shadow-xl border border-slate-100">
+                        <h3 class="font-display text-3xl font-bold mb-8 text-slate-900">Send us a Message</h3>
+                        <div class="mb-6">
+                            <label for="name" class="block text-slate-700 font-semibold mb-3">Your Name *</label>
+                            <input type="text" id="name" name="name" required class="w-full p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-slate-500 focus:border-slate-500 focus:outline-none transition-all" placeholder="Enter your full name">
                         </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-slate-700 mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" class="w-full p-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-500 focus:outline-none">
+                        <div class="mb-6">
+                            <label for="email" class="block text-slate-700 font-semibold mb-3">Your Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-slate-500 focus:border-slate-500 focus:outline-none transition-all" placeholder="Enter your email address">
                         </div>
-                        <div class="mb-4">
-                            <label for="message" class="block text-slate-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" class="w-full p-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-500 focus:outline-none"></textarea>
+                        <div class="mb-8">
+                            <label for="message" class="block text-slate-700 font-semibold mb-3">Message *</label>
+                            <textarea id="message" name="message" rows="6" required class="w-full p-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-slate-500 focus:border-slate-500 focus:outline-none transition-all resize-none" placeholder="Please share how we can assist you..."></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-700 transition-colors">Submit Inquiry</button>
+                        <button type="submit" class="w-full btn-primary text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -306,6 +390,58 @@
                 const clone = review.cloneNode(true);
                 scroller.appendChild(clone);
             });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in-up elements
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Add focus trap for mobile menu
+            const focusableElements = mobileMenu.querySelectorAll('a, button');
+            if (focusableElements.length > 0) {
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                mobileMenuButton.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        mobileMenu.classList.toggle('hidden');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            firstElement.focus();
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>
