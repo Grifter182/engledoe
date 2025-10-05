@@ -375,8 +375,12 @@
                     </div>
                 </div>
                 <div class="fade-in-up">
-                    <form class="p-10 rounded-2xl shadow-xl" style="background-color: var(--soft-cream); border: 1px solid var(--stone);">
+                    <form name="contact" method="POST" data-netlify="true" class="p-10 rounded-2xl shadow-xl" style="background-color: var(--soft-cream); border: 1px solid var(--stone);">
                         <h3 class="font-display text-3xl font-bold mb-8" style="color: var(--charcoal-grey);">Send us a Message</h3>
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div style="opacity: 0; position: absolute; left: -9999px;">
+                            <input type="text" name="honeypot" />
+                        </div>
                         <div class="mb-6">
                             <label for="name" class="block font-ui font-semibold mb-3" style="color: var(--charcoal-grey);">Your Name *</label>
                             <input type="text" id="name" name="name" required class="w-full p-4 rounded-xl transition-all" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey); font-family: 'Lato', sans-serif;" placeholder="Enter your full name" onfocus="this.style.borderColor='var(--muted-gold)'; this.style.boxShadow='0 0 0 2px rgba(192, 178, 131, 0.2)'" onblur="this.style.borderColor='var(--stone)'; this.style.boxShadow='none'">
