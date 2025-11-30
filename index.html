@@ -3,190 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WS Engledoe and Sons Funerals - Serving Cape Town</title>
-    <!-- Tailwind CSS for quick styling -->
+    <title>WS Engledoe & Sons Funerals – Cape Town Funeral Home</title>
+    <meta name="description" content="WS Engledoe & Sons is a family‑run funeral home in Salt River, Cape Town.  Since 1955 we’ve provided compassionate burial, cremation and funeral planning services.  Call us 24/7 for immediate assistance.">
+    <link rel="canonical" href="https://example.com/">  
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WS Engledoe & Sons Funerals – Cape Town">
+    <meta property="og:description" content="Family‑run funeral home offering burials, cremations, planning and full parlour services in Cape Town.  Available 24/7.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://example.com/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured data for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FuneralHome",
+      "name": "WS Engledoe & Sons Funerals",
+      "url": "https://example.com/",
+      "telephone": "+27 82 494 9852",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12 Spencer Road",
+        "addressLocality": "Salt River",
+        "addressRegion": "Western Cape",
+        "postalCode": "7925",
+        "addressCountry": "ZA"
+      },
+      "areaServed": "Cape Town, South Africa",
+      "foundingDate": "1955"
+    }
+    </script>
+
+    <!-- Tailwind CSS (quick styling) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Elegant & Reverent Theme -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Playfair Display for headings and Lato for body text -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide icons for simple line icons -->
+    <!-- Lucide icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Elegant & Reverent Color Palette */
         :root {
             --soft-cream: #FDFBF7;
             --charcoal-grey: #343F4B;
             --stone: #B2B2B2;
             --muted-gold: #C0B283;
         }
-        
-        /* Body font for readability */
         body {
             font-family: 'Lato', sans-serif;
             background-color: var(--soft-cream);
             color: var(--charcoal-grey);
             scroll-behavior: smooth;
         }
-        
-        /* Playfair Display for logo and main headings */
         .font-display {
             font-family: 'Playfair Display', serif;
         }
-        
-        /* Playfair Display for logo */
         .font-logo {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
         }
-        
-        /* Lato for navigation and UI elements */
         .font-ui {
             font-family: 'Lato', sans-serif;
             font-weight: 600;
         }
-        /* Scrolling banner styling */
-        .scroll-banner-container {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-        }
-        .scroll-banner {
-            display: flex;
-            animation: scroll 20s linear infinite;
-        }
-        .scroll-banner:hover {
-            animation-play-state: paused;
-        }
-        .review-card {
-            flex-shrink: 0;
-            width: 350px;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        /* Hero background overlay with elegant styling */
-        .hero-bg {
-            background-image: linear-gradient(rgba(52,63,75,0.6), rgba(52,63,75,0.8)), url('Hero.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        
-        /* Enhanced animations */
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-        
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .fade-in-up.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Service card hover effects */
-        .service-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        /* Elegant button styles */
         .btn-primary {
             background-color: var(--charcoal-grey);
             color: var(--soft-cream);
             transition: all 0.3s ease;
             border: none;
         }
-        
         .btn-primary:hover {
             background-color: #2a3440;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(52, 63, 75, 0.2);
+            box-shadow: 0 10px 25px rgba(52,63,75,0.2);
         }
-        
         .btn-secondary {
             background-color: var(--stone);
             color: var(--charcoal-grey);
             transition: all 0.3s ease;
             border: none;
         }
-        
         .btn-secondary:hover {
             background-color: #a0a0a0;
         }
-        
-        /* Accent elements */
-        .accent-gold {
-            color: var(--muted-gold);
+        /* Language selector styling */
+        .lang-select select {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            border: 1px solid var(--stone);
+            background-color: var(--soft-cream);
+            color: var(--charcoal-grey);
         }
-        
-        .accent-border {
-            border-color: var(--muted-gold);
+        .hero-bg {
+            background-image: linear-gradient(rgba(52,63,75,0.6), rgba(52,63,75,0.8)), url('Hero.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        
-        .accent-bg {
-            background-color: var(--muted-gold);
+
+        /* Dark mode overrides: when the body has the class `dark-mode` the CSS variables are redefined.  */
+        body.dark-mode {
+            /* invert our palette for dark backgrounds */
+            --soft-cream: #232A33;
+            --charcoal-grey: #F7F6F2;
+            --stone: #6D6D6D;
+            --muted-gold: #C4AA7B;
+            background-color: var(--soft-cream);
+            color: var(--charcoal-grey);
         }
     </style>
 </head>
-<body style="background-color: var(--soft-cream); color: var(--charcoal-grey);">
-
+<body>
     <!-- Header & Navigation -->
-    <header style="background-color: var(--soft-cream); color: var(--charcoal-grey); box-shadow: 0 2px 4px rgba(178, 178, 178, 0.1);" class="sticky top-0 z-50">
+    <header class="sticky top-0 z-50" style="background-color: var(--soft-cream); box-shadow: 0 2px 4px rgba(178,178,178,0.1);">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-logo text-2xl tracking-wide" style="color: var(--charcoal-grey);">W. S. Engledoe &amp; Sons</a>
+            <a href="#" class="font-logo text-2xl tracking-wide" style="color: var(--charcoal-grey);">W. S. Engledoe & Sons</a>
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="#services" class="font-ui hover:text-stone-600 transition-colors" style="color: var(--charcoal-grey);">Services</a>
-                <a href="#about" class="font-ui hover:text-stone-600 transition-colors" style="color: var(--charcoal-grey);">About Us</a>
-                <a href="#reviews" class="font-ui hover:text-stone-600 transition-colors" style="color: var(--charcoal-grey);">Testimonials</a>
-                <a href="#contact" class="btn-primary px-4 py-2 rounded-lg transition-colors font-ui">Contact Us</a>
+                <a href="#services" class="font-ui hover:text-stone-600 transition-colors">Services</a>
+                <a href="#about" class="font-ui hover:text-stone-600 transition-colors">About Us</a>
+                <a href="#faq" class="font-ui hover:text-stone-600 transition-colors">FAQ</a>
+                <a href="#contact" class="btn-primary px-4 py-2 rounded-lg transition-colors font-ui">Call Us 24/7</a>
             </div>
+            <div class="lang-select hidden md:block">
+                <label for="language" class="sr-only">Language</label>
+                <select id="language" onchange="changeLanguage(this.value)">
+                    <option value="en" selected>English</option>
+                    <option value="xh">isiXhosa</option>
+                    <option value="zu">isiZulu</option>
+                    <option value="af">Afrikaans</option>
+                </select>
+            </div>
+            <!-- Theme toggle button: toggles between light and dark modes -->
+            <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()" class="hidden md:block ml-4" style="color: var(--charcoal-grey);">
+                <i id="theme-icon" data-lucide="moon"></i>
+            </button>
             <button id="mobile-menu-button" class="md:hidden" style="color: var(--charcoal-grey);">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#services" class="block py-2 font-ui" style="color: var(--charcoal-grey);">Services</a>
-            <a href="#about" class="block py-2 font-ui" style="color: var(--charcoal-grey);">About Us</a>
-            <a href="#reviews" class="block py-2 font-ui" style="color: var(--charcoal-grey);">Testimonials</a>
-            <a href="#contact" class="block mt-2 btn-primary px-4 py-2 rounded-lg transition-colors text-center font-ui">Contact Us</a>
+            <a href="#services" class="block py-2 font-ui">Services</a>
+            <a href="#about" class="block py-2 font-ui">About Us</a>
+            <a href="#faq" class="block py-2 font-ui">FAQ</a>
+            <a href="#contact" class="block mt-2 btn-primary px-4 py-2 rounded-lg text-center font-ui">Call Us 24/7</a>
+            <div class="mt-2 lang-select">
+                <select onchange="changeLanguage(this.value)">
+                    <option value="en" selected>English</option>
+                    <option value="xh">isiXhosa</option>
+                    <option value="zu">isiZulu</option>
+                    <option value="af">Afrikaans</option>
+                </select>
+            </div>
+
+        <!-- Theme toggle for mobile -->
+        <button onclick="toggleTheme()" class="mt-2 flex items-center" style="color: var(--charcoal-grey);">
+            <i id="theme-icon-mobile" data-lucide="moon" class="w-5 h-5 mr-2"></i>
+            <span>Theme</span>
+        </button>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero-bg text-white py-24 md:py-40 min-h-screen flex items-center">
-            <div class="container mx-auto px-6 text-center fade-in">
+            <div class="container mx-auto px-6 text-center">
                 <div class="max-w-4xl mx-auto">
-                    <h1 class="font-logo text-6xl md:text-8xl lg:text-9xl mb-6 leading-none" style="color: var(--soft-cream);">W. S. Engledoe &amp; Sons</h1>
-                    <p class="text-xl md:text-2xl lg:text-3xl mb-8 font-light opacity-90" style="color: var(--soft-cream); font-family: 'Lato', sans-serif;">Guiding Cape Town families since 1955</p>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 opacity-80 leading-relaxed" style="color: var(--soft-cream); font-family: 'Lato', sans-serif;">
-                        With dignity, compassion, and unwavering care, we honor the lives of those we've lost while supporting the families they leave behind.
-                    </p>
+                    <h1 class="font-logo text-6xl md:text-8xl lg:text-9xl mb-6 leading-none" style="color: var(--soft-cream);">WS Engledoe & Sons</h1>
+                    <p class="text-xl md:text-2xl lg:text-3xl mb-4 font-light opacity-90" style="color: var(--soft-cream);">Guiding Cape Town families since 1955</p>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-80 leading-relaxed" style="color: var(--soft-cream);">We handle every detail with dignity and compassion so you can focus on your loved ones.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="#contact" class="btn-primary px-8 py-4 rounded-full font-ui text-lg inline-flex items-center justify-center">
                             <i data-lucide="phone" class="w-5 h-5 mr-3"></i>
-                            24/7 Support Line
+                            Call Now – 24/7
                         </a>
-                        <a href="#services" class="px-8 py-4 rounded-full font-ui text-lg border transition-all duration-300" style="background-color: rgba(253, 251, 247, 0.2); color: var(--soft-cream); border-color: rgba(253, 251, 247, 0.3); backdrop-filter: blur(4px);" onmouseover="this.style.backgroundColor='rgba(253, 251, 247, 0.3)'" onmouseout="this.style.backgroundColor='rgba(253, 251, 247, 0.2)'">
-                            Our Services
+                        <a href="#services" class="px-8 py-4 rounded-full font-ui text-lg border transition-all duration-300" style="background-color: rgba(253, 251, 247, 0.2); color: var(--soft-cream); border-color: rgba(253,251,247,0.3); backdrop-filter: blur(4px);">
+                            Explore Services
                         </a>
                     </div>
                 </div>
@@ -196,50 +187,46 @@
         <!-- Services Section -->
         <section id="services" class="py-24" style="background: linear-gradient(to bottom, var(--soft-cream), #f8f6f2);">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="color: var(--charcoal-grey);">What We Offer</h2>
-                    <p class="text-lg max-w-2xl mx-auto" style="color: var(--stone); font-family: 'Lato', sans-serif;">Comprehensive services designed to honour your loved ones with dignity, respect, and compassionate care.</p>
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="color: var(--charcoal-grey);">Our Services</h2>
+                    <p class="text-lg max-w-2xl mx-auto" style="color: var(--stone);">We offer comprehensive funeral services tailored to honour your loved one’s life.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Service Card 1: Burial Services -->
-                    <div class="service-card p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream);">
+                    <!-- Service Card: Burial Services -->
+                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
                         <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
                             <i data-lucide="gem" class="w-8 h-8"></i>
                         </div>
                         <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Burial Services</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">Traditional and personalised burial arrangements conducted with the utmost dignity.</p>
-                        <div style="height: 1px; background-color: var(--muted-gold); margin: 16px 0;"></div>
-                        <p class="text-sm leading-relaxed" style="color: var(--stone); font-family: 'Lato', sans-serif;">Our team assists with selecting a cemetery, arranging transportation, organising a graveside service and handling legal documentation.</p>
+                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">Traditional and personalised burials conducted with dignity and respect.</p>
+                        <a href="services/burials.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
                     </div>
-                    <!-- Service Card 2: Cremation Services -->
-                    <div class="service-card p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream);">
+                    <!-- Service Card: Cremation Services -->
+                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
                         <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
                             <i data-lucide="flame" class="w-8 h-8"></i>
                         </div>
                         <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Cremation Services</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">Respectful cremation services with options for memorials and ash scattering.</p>
-                        <div style="height: 1px; background-color: var(--muted-gold); margin: 16px 0;"></div>
-                        <p class="text-sm leading-relaxed" style="color: var(--stone); font-family: 'Lato', sans-serif;">We offer affordable and dignified cremations, with choices for direct cremation or a service, allowing ashes to be kept in an urn, scattered or placed in a columbarium.</p>
+                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">Respectful cremations with options for memorials and ash scattering.</p>
+                        <a href="services/cremations.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
                     </div>
-                    <!-- Service Card 3: Funeral Planning -->
-                    <div class="service-card p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream);">
+                    <!-- Service Card: Funeral Planning -->
+                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
                         <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
                             <i data-lucide="calendar-check" class="w-8 h-8"></i>
                         </div>
                         <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Funeral Planning</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">Thoughtful planning and coordination to ensure every detail is taken care of.</p>
-                        <div style="height: 1px; background-color: var(--muted-gold); margin: 16px 0;"></div>
-                        <p class="text-sm leading-relaxed" style="color: var(--stone); font-family: 'Lato', sans-serif;">We manage every detail—venue booking, catering, transportation, floral arrangements and printed materials—ensuring a seamless, stress‑free experience.</p>
+                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">Thoughtful planning and coordination for a seamless farewell.</p>
+                        <a href="services/planning.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
                     </div>
-                    <!-- Service Card 4: Full Parlour Services -->
-                    <div class="service-card p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream);">
+                    <!-- Service Card: Full Parlour Services -->
+                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
                         <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
                             <i data-lucide="users" class="w-8 h-8"></i>
                         </div>
                         <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Full Parlour Services</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">Complete arrangements, logistics and compassionate on‑the‑day care.</p>
-                        <div style="height: 1px; background-color: var(--muted-gold); margin: 16px 0;"></div>
-                        <p class="text-sm leading-relaxed" style="color: var(--stone); font-family: 'Lato', sans-serif;">Our parlour team offers comprehensive coordination, compassionate support and customised arrangements, drawing on our professional expertise and personalised approach.</p>
+                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">Comprehensive arrangements, logistics and compassionate on‑the‑day care.</p>
+                        <a href="services/parlour.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
                     </div>
                 </div>
             </div>
@@ -248,88 +235,45 @@
         <!-- About Us Section -->
         <section id="about" class="py-24" style="background-color: var(--soft-cream);">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                <div class="fade-in-up">
+                <div>
                     <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                        <img src="family.webp" alt="WS Engledoe and Sons Team - Vaughn Garnet & Garth Engledoe" class="w-full h-auto transition-transform duration-700 hover:scale-105">
+                        <img src="family.webp" alt="WS Engledoe & Sons team portrait" class="w-full h-auto transition-transform duration-700 hover:scale-105">
                         <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(52,63,75,0.2), transparent);"></div>
                     </div>
                 </div>
-                <div class="fade-in-up">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight" style="color: var(--charcoal-grey);">A Legacy of Care Since 1955</h2>
-                    <p class="mb-6 text-lg leading-relaxed" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">
-                        Rooted in Cape Town for generations, WS Engledoe &amp; Sons is a family‑run funeral home built on compassion, integrity and respect. Since 1955 we've been trusted to walk alongside families with quiet professionalism—caring for every detail so each farewell genuinely reflects the life it honours.
-                    </p>
-                    <p class="mb-8 text-lg leading-relaxed" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">
-                        From our base in Salt River, our experienced team offers calm, personalised guidance—whether you need immediate assistance or thoughtful planning for the days ahead. We uphold values of dignity, respect and compassion and provide tailored services to honour every life.
-                    </p>
-                    <div class="flex items-center space-x-6">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold" style="color: var(--charcoal-grey);">70+</div>
-                            <div class="text-sm" style="color: var(--stone); font-family: 'Lato', sans-serif;">Years of Service</div>
-                        </div>
-                        <div class="h-12 w-px" style="background-color: var(--muted-gold);"></div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold" style="color: var(--charcoal-grey);">1000+</div>
-                            <div class="text-sm" style="color: var(--stone); font-family: 'Lato', sans-serif;">Families Served</div>
-                        </div>
-                        <div class="h-12 w-px" style="background-color: var(--muted-gold);"></div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold" style="color: var(--charcoal-grey);">4.7★</div>
-                            <div class="text-sm" style="color: var(--stone); font-family: 'Lato', sans-serif;">Google Rating</div>
-                        </div>
-                    </div>
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--charcoal-grey);">A Legacy of Care Since 1955</h2>
+                    <p class="mb-6 text-lg leading-relaxed" style="color: var(--charcoal-grey);">As a family‑run funeral home rooted in Cape Town, we’ve guided families with compassion for more than 70 years. Our experienced team provides personalised support—whether you need immediate assistance or are planning ahead.</p>
+                    <ul class="space-y-2 mb-8">
+                        <li><strong>70+ years</strong> of service to the community</li>
+                        <li><strong>1 000+ families</strong> served with dignity</li>
+                        <li><strong>4.7 star</strong> Google rating for excellence</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-ui">Schedule a Consultation</a>
                 </div>
             </div>
         </section>
 
-        <!-- Reviews Scroll Banner Section -->
-        <section id="reviews" class="py-20" style="background-color: var(--charcoal-grey); color: var(--soft-cream);">
-            <div class="container mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="font-display text-3xl md:text-4xl font-bold" style="color: var(--soft-cream);">What Our Families Say</h2>
-                    <p class="mt-2" style="color: var(--stone); font-family: 'Lato', sans-serif;">Based on our 4.7‑star Google rating</p>
+        <!-- FAQ Section -->
+        <section id="faq" class="py-24" style="background: linear-gradient(to bottom, #f8f6f2, var(--soft-cream));">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="color: var(--charcoal-grey);">Frequently Asked Questions</h2>
+                    <p class="text-lg max-w-2xl mx-auto" style="color: var(--stone);">Answers to common questions about funeral arrangements and our services.</p>
                 </div>
-            </div>
-            <!-- Scrolling banner container -->
-            <div class="scroll-banner-container">
-                <div id="reviewScroller" class="scroll-banner">
-                    <!-- Sample Reviews: replace with real testimonials when available -->
-                    <div class="review-card p-6 rounded-lg shadow-lg mx-4" style="background-color: var(--stone); color: var(--charcoal-grey);">
-                        <div class="flex items-center mb-2">
-                            <div class="flex" style="color: var(--muted-gold);">★★★★★</div>
-                        </div>
-                        <p class="mb-4" style="font-family: 'Lato', sans-serif;">"Incredibly professional and compassionate. They handled everything with such grace and made a difficult time much easier for our family."</p>
-                        <p class="font-ui font-bold">– The Jacobs Family</p>
+                <div class="max-w-3xl mx-auto space-y-8">
+                    <div>
+                        <h3 class="font-display text-xl font-semibold mb-2" style="color: var(--charcoal-grey);">What should I do when a loved one passes away?</h3>
+                        <p style="color: var(--charcoal-grey);">Contact us immediately on our 24/7 support line. We’ll assist with transporting your loved one, completing paperwork and planning the funeral or cremation.</p>
                     </div>
-                    <div class="review-card bg-slate-700 p-6 rounded-lg shadow-lg mx-4">
-                        <div class="flex items-center mb-2">
-                            <div class="flex text-yellow-400">★★★★★</div>
-                        </div>
-                        <p class="mb-4">"WS Engledoe &amp; Sons provided exceptional service. Their attention to detail and genuine care were deeply appreciated. Highly recommended."</p>
-                        <p class="font-bold">– Sarah&nbsp;P.</p>
+                    <div>
+                        <h3 class="font-display text-xl font-semibold mb-2" style="color: var(--charcoal-grey);">Do you offer pre‑planning or funeral cover?</h3>
+                        <p style="color: var(--charcoal-grey);">Yes. Our <a href="pre-planning.html" class="text-muted-gold underline">Pre‑Planning</a> page explains funeral cover options and how to arrange a service in advance.</p>
                     </div>
-                    <div class="review-card bg-slate-700 p-6 rounded-lg shadow-lg mx-4">
-                        <div class="flex items-center mb-2">
-                             <div class="flex text-yellow-400">★★★★☆</div>
-                        </div>
-                        <p class="mb-4">"A very professional service. They were patient and guided us through every step of the process. Thank you for your support."</p>
-                        <p class="font-bold">– Michael&nbsp;B.</p>
+                    <div>
+                        <h3 class="font-display text-xl font-semibold mb-2" style="color: var(--charcoal-grey);">Can you accommodate cultural or religious preferences?</h3>
+                        <p style="color: var(--charcoal-grey);">We honour all cultural and faith traditions and will customise services to respect your family’s values and beliefs.</p>
                     </div>
-                    <div class="review-card bg-slate-700 p-6 rounded-lg shadow-lg mx-4">
-                        <div class="flex items-center mb-2">
-                             <div class="flex text-yellow-400">★★★★★</div>
-                        </div>
-                        <p class="mb-4">"The team was so understanding and accommodating to our cultural needs. They truly went above and beyond for my grandmother’s farewell."</p>
-                        <p class="font-bold">– Naledi&nbsp;Williams</p>
-                    </div>
-                    <div class="review-card bg-slate-700 p-6 rounded-lg shadow-lg mx-4">
-                        <div class="flex items-center mb-2">
-                             <div class="flex text-yellow-400">★★★★★</div>
-                        </div>
-                        <p class="mb-4">"From the first phone call, we felt supported. Their kindness and professionalism are unmatched. A true pillar of the community."</p>
-                        <p class="font-bold">– David&nbsp;Chen</p>
-                    </div>
-                    <!-- Cloned reviews for seamless loop are added via JavaScript -->
                 </div>
             </div>
         </section>
@@ -337,44 +281,37 @@
         <!-- Contact Section -->
         <section id="contact" class="py-24" style="background: linear-gradient(to bottom, var(--soft-cream), #f8f6f2);">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
-                <div class="fade-in-up">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--charcoal-grey);">Contact &amp; Availability</h2>
-                    <p class="mb-8 text-lg leading-relaxed" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">Our lines are open 24‑hours for support whenever you need it most. Please reach out for immediate assistance or to discuss your needs.</p>
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--charcoal-grey);">Contact & Availability</h2>
+                    <p class="mb-8 text-lg leading-relaxed" style="color: var(--charcoal-grey);">Our lines are open 24 hours. Reach out for immediate assistance or to discuss your needs.</p>
                     <div class="space-y-6 mb-10">
                         <div class="flex items-start p-4 rounded-xl shadow-sm" style="background-color: var(--soft-cream);">
-                            <i data-lucide="phone" class="w-6 h-6 mr-4 mt-1 flex-shrink-0" style="color: var(--charcoal-grey);"></i>
+                            <i data-lucide="phone" class="w-6 h-6 mr-4 mt-1 flex-shrink-0"></i>
                             <div>
-                                <div class="font-ui font-semibold mb-1" style="color: var(--charcoal-grey);">24/7 Support Line</div>
-                                <a href="tel:+27824949852" class="transition-colors" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;" onmouseover="this.style.color='var(--muted-gold)'" onmouseout="this.style.color='var(--charcoal-grey)'">082&nbsp;49&nbsp;49&nbsp;852</a>
+                                <div class="font-ui font-semibold mb-1">Call Our 24/7 Line</div>
+                                <a href="tel:+27824949852" class="transition-colors" style="color: var(--charcoal-grey);">082 49 49 852</a>
                             </div>
                         </div>
                         <div class="flex items-start p-4 rounded-xl shadow-sm" style="background-color: var(--soft-cream);">
-                            <i data-lucide="mail" class="w-6 h-6 mr-4 mt-1 flex-shrink-0" style="color: var(--charcoal-grey);"></i>
+                            <i data-lucide="mail" class="w-6 h-6 mr-4 mt-1 flex-shrink-0"></i>
                             <div>
-                                <div class="font-ui font-semibold mb-1" style="color: var(--charcoal-grey);">Email Us</div>
-                                <a href="mailto:v.engledoe@gmail.com" class="transition-colors" style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;" onmouseover="this.style.color='var(--muted-gold)'" onmouseout="this.style.color='var(--charcoal-grey)'">v.engledoe@gmail.com</a>
+                                <div class="font-ui font-semibold mb-1">Email Us</div>
+                                <a href="mailto:v.engledoe@gmail.com" class="transition-colors" style="color: var(--charcoal-grey);">v.engledoe@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-start p-4 rounded-xl shadow-sm" style="background-color: var(--soft-cream);">
-                            <i data-lucide="map-pin" class="w-6 h-6 mr-4 mt-1 flex-shrink-0" style="color: var(--charcoal-grey);"></i>
+                            <i data-lucide="map-pin" class="w-6 h-6 mr-4 mt-1 flex-shrink-0"></i>
                             <div>
-                                <div class="font-ui font-semibold mb-1" style="color: var(--charcoal-grey);">Visit Our Location</div>
-                                <span style="color: var(--charcoal-grey); font-family: 'Lato', sans-serif;">12 Spencer Road, Salt River, Cape Town, 7925</span>
+                                <div class="font-ui font-semibold mb-1">Visit Us</div>
+                                <span style="color: var(--charcoal-grey);">12 Spencer Road, Salt River, Cape Town, 7925</span>
                             </div>
                         </div>
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <!-- Working embedded Google Map preview (no hyperlink) -->
-                        <iframe
-                          title="Map: 12 Spencer Road, Salt River, Cape Town, 7925"
-                          src="https://maps.google.com/maps?q=12%20Spencer%20Road,%20Salt%20River,%20Cape%20Town,%207925&z=15&output=embed"
-                          class="w-full h-64 md:h-96 border-0"
-                          loading="lazy"
-                          referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
+                        <iframe title="Map: 12 Spencer Road, Salt River, Cape Town" src="https://maps.google.com/maps?q=12%20Spencer%20Road,%20Salt%20River,%20Cape%20Town,%207925&z=15&output=embed" class="w-full h-64 md:h-96 border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div class="fade-in-up">
+                <div>
                     <form name="contact" method="POST" data-netlify="true" class="p-10 rounded-2xl shadow-xl" style="background-color: var(--soft-cream); border: 1px solid var(--stone);">
                         <h3 class="font-display text-3xl font-bold mb-8" style="color: var(--charcoal-grey);">Send us a Message</h3>
                         <input type="hidden" name="form-name" value="contact" />
@@ -383,116 +320,86 @@
                         </div>
                         <div class="mb-6">
                             <label for="name" class="block font-ui font-semibold mb-3" style="color: var(--charcoal-grey);">Your Name *</label>
-                            <input type="text" id="name" name="name" required class="w-full p-4 rounded-xl transition-all" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey); font-family: 'Lato', sans-serif;" placeholder="Enter your full name" onfocus="this.style.borderColor='var(--muted-gold)'; this.style.boxShadow='0 0 0 2px rgba(192, 178, 131, 0.2)'" onblur="this.style.borderColor='var(--stone)'; this.style.boxShadow='none'">
+                            <input type="text" id="name" name="name" required class="w-full p-4 rounded-xl" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey);" placeholder="Enter your full name">
                         </div>
                         <div class="mb-6">
                             <label for="email" class="block font-ui font-semibold mb-3" style="color: var(--charcoal-grey);">Your Email *</label>
-                            <input type="email" id="email" name="email" required class="w-full p-4 rounded-xl transition-all" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey); font-family: 'Lato', sans-serif;" placeholder="Enter your email address" onfocus="this.style.borderColor='var(--muted-gold)'; this.style.boxShadow='0 0 0 2px rgba(192, 178, 131, 0.2)'" onblur="this.style.borderColor='var(--stone)'; this.style.boxShadow='none'">
+                            <input type="email" id="email" name="email" required class="w-full p-4 rounded-xl" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey);" placeholder="Enter your email address">
                         </div>
                         <div class="mb-8">
                             <label for="message" class="block font-ui font-semibold mb-3" style="color: var(--charcoal-grey);">Message *</label>
-                            <textarea id="message" name="message" rows="6" required class="w-full p-4 rounded-xl transition-all resize-none" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey); font-family: 'Lato', sans-serif;" placeholder="Please share how we can assist you..." onfocus="this.style.borderColor='var(--muted-gold)'; this.style.boxShadow='0 0 0 2px rgba(192, 178, 131, 0.2)'" onblur="this.style.borderColor='var(--stone)'; this.style.boxShadow='none'"></textarea>
+                            <textarea id="message" name="message" rows="6" required class="w-full p-4 rounded-xl resize-none" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey);" placeholder="Please share how we can assist you..."></textarea>
                         </div>
-                        <button type="submit" class="w-full btn-primary font-ui font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300">Send Message</button>
+                        <button type="submit" class="w-full btn-primary font-ui font-bold py-4 px-8 rounded-xl text-lg">Send Message</button>
                     </form>
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
     <footer class="py-10" style="background-color: var(--charcoal-grey); color: var(--soft-cream);">
         <div class="container mx-auto px-6 text-center">
-            <p style="font-family: 'Lato', sans-serif;">&copy; 2025&nbsp;WS Engledoe and Sons Funerals. All Rights Reserved.</p>
-            <p class="text-sm mt-2" style="color: var(--stone); font-family: 'Lato', sans-serif;">
-                <a href="privacy-policy.html" class="transition-colors hover:underline" style="color: var(--stone);" onmouseover="this.style.color='var(--muted-gold)'" onmouseout="this.style.color='var(--stone)'">Privacy Policy</a>
+            <p>&copy; 2025 WS Engledoe & Sons Funerals. All Rights Reserved.</p>
+            <p class="text-sm mt-2" style="color: var(--stone);">
+                <a href="privacy-policy.html" class="hover:underline" style="color: var(--stone);">Privacy Policy</a>
             </p>
-            <p class="text-sm mt-4" style="color: var(--stone); font-family: 'Lato', sans-serif; font-weight: 500;">a site by MerchantHaus&nbsp;2025</p>
+            <p class="text-sm mt-4" style="color: var(--stone); font-weight: 500;">a site by MerchantHaus 2025</p>
         </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <!-- This button opens a chat on WhatsApp using the business mobile number. It uses an inline SVG icon for WhatsApp. -->
     <a href="https://wa.me/27824949852" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center" aria-label="Chat on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
         </svg>
     </a>
 
-    <!-- JavaScript for interactive components -->
+    <!-- Scripts -->
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
-
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        function changeLanguage(lang) {
+            // basic language switcher: navigate to subdirectory
+            const path = window.location.pathname;
+            const newPath = '/' + lang + (path === '/' ? '/index.html' : path);
+            window.location.href = newPath;
+        }
 
-        // Review scroller logic: clone reviews to create a seamless loop
-        document.addEventListener('DOMContentLoaded', function() {
-            const scroller = document.getElementById('reviewScroller');
-            const reviews = scroller.querySelectorAll('.review-card');
-            reviews.forEach(review => {
-                const clone = review.cloneNode(true);
-                scroller.appendChild(clone);
-            });
-
-            // Scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all fade-in-up elements
-            document.querySelectorAll('.fade-in-up').forEach(el => {
-                observer.observe(el);
-            });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // Close mobile menu if open
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-
-            // Add focus trap for mobile menu
-            const focusableElements = mobileMenu.querySelectorAll('a, button');
-            if (focusableElements.length > 0) {
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-
-                mobileMenuButton.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        mobileMenu.classList.toggle('hidden');
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            firstElement.focus();
-                        }
-                    }
-                });
+        // Theme toggling: persist preference in localStorage and swap icons.
+        function updateThemeIcon(isDark) {
+            // Determine the appropriate icon (sun for dark mode, moon for light mode)
+            const iconName = isDark ? 'sun' : 'moon';
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', iconName);
             }
-        });
+            if (themeIconMobile) {
+                themeIconMobile.setAttribute('data-lucide', iconName);
+            }
+            // Re-render Lucide icons to reflect the new icon names
+            lucide.createIcons();
+        }
+
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon(isDark);
+        }
+        // Initialise theme on page load
+        (function() {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            // Set the correct icon based on current mode
+            updateThemeIcon(document.body.classList.contains('dark-mode'));
+        })();
     </script>
 </body>
 </html>

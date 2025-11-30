@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Parlour Services – WS Engledoe & Sons</title>
+    <meta name="description" content="Discover our full parlour services, providing complete funeral arrangements and compassionate on‑the‑day care.">
+    <link rel="canonical" href="https://example.com/services/parlour.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --soft-cream:#FDFBF7; --charcoal-grey:#343F4B; --stone:#B2B2B2; --muted-gold:#C0B283; }
+        body { font-family:'Lato',sans-serif; background:var(--soft-cream); color:var(--charcoal-grey); }
+        /* Dark mode overrides */
+        body.dark-mode {
+            --soft-cream:#232A33;
+            --charcoal-grey:#F7F6F2;
+            --stone:#6D6D6D;
+            --muted-gold:#C4AA7B;
+            background: var(--soft-cream);
+            color: var(--charcoal-grey);
+        }
+        .font-display { font-family:'Playfair Display',serif; }
+        .btn-primary { background: var(--charcoal-grey); color: var(--soft-cream); padding: 0.5rem 1rem; border-radius: 0.375rem; }
+    </style>
+</head>
+<body>
+    <header class="sticky top-0 z-50" style="background: var(--soft-cream); box-shadow: 0 2px 4px rgba(178,178,178,0.1);">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="font-display text-2xl">WS Engledoe & Sons</a>
+            <a href="../index.html" class="btn-primary flex items-center"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Home</a>
+            <!-- Theme toggle button for services pages -->
+            <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()" class="ml-4 flex items-center" style="color: var(--charcoal-grey);">
+                <i id="theme-icon" data-lucide="moon" class="w-5 h-5"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">Full Parlour Services</h1>
+        <p class="text-lg mb-4">Our full parlour service ensures every aspect of the funeral is handled seamlessly—from logistics to on‑the‑day care—so you can focus on family.</p>
+        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">What’s Included</h2>
+        <ul class="list-disc ml-6 space-y-2">
+            <li>Comprehensive coordination of the funeral day</li>
+            <li>Professional staff to assist guests and family</li>
+            <li>Setup and cleanup of venues</li>
+            <li>Coordination of transportation, music and catering</li>
+            <li>Support for cultural or religious customs</li>
+        </ul>
+        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Why Choose Our Parlour</h2>
+        <p class="mb-4">By entrusting us with the details, you can be present with your loved ones.  Our team has decades of experience delivering flawless services.</p>
+        <a href="../pre-planning.html" class="text-muted-gold underline">Learn about funeral cover & pre‑planning →</a>
+    </main>
+    <footer class="py-10" style="background: var(--charcoal-grey); color: var(--soft-cream);">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 WS Engledoe & Sons Funerals.</p>
+        </div>
+    </footer>
+    <script>
+        // Initialise Lucide and handle dark mode toggling on services pages
+        lucide.createIcons();
+
+        function updateThemeIcon(isDark) {
+            const iconName = isDark ? 'sun' : 'moon';
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', iconName);
+            }
+            lucide.createIcons();
+        }
+
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon(isDark);
+        }
+
+        (function() {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            updateThemeIcon(document.body.classList.contains('dark-mode'));
+        })();
+    </script>
+</body>
+</html>

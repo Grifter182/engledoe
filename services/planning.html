@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funeral Planning – WS Engledoe & Sons</title>
+    <meta name="description" content="WS Engledoe & Sons offers comprehensive funeral planning services, coordinating venues, catering, transport and documentation.">
+    <link rel="canonical" href="https://example.com/services/planning.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --soft-cream:#FDFBF7; --charcoal-grey:#343F4B; --stone:#B2B2B2; --muted-gold:#C0B283; }
+        body { font-family:'Lato',sans-serif; background:var(--soft-cream); color:var(--charcoal-grey); }
+        /* Dark mode overrides */
+        body.dark-mode {
+            --soft-cream:#232A33;
+            --charcoal-grey:#F7F6F2;
+            --stone:#6D6D6D;
+            --muted-gold:#C4AA7B;
+            background: var(--soft-cream);
+            color: var(--charcoal-grey);
+        }
+        .font-display { font-family:'Playfair Display',serif; }
+        .btn-primary { background: var(--charcoal-grey); color: var(--soft-cream); padding: 0.5rem 1rem; border-radius: 0.375rem; }
+    </style>
+</head>
+<body>
+    <header class="sticky top-0 z-50" style="background: var(--soft-cream); box-shadow: 0 2px 4px rgba(178,178,178,0.1);">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="font-display text-2xl">WS Engledoe & Sons</a>
+            <a href="../index.html" class="btn-primary flex items-center"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Home</a>
+            <!-- Theme toggle button for services pages -->
+            <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()" class="ml-4 flex items-center" style="color: var(--charcoal-grey);">
+                <i id="theme-icon" data-lucide="moon" class="w-5 h-5"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">Funeral Planning</h1>
+        <p class="text-lg mb-4">Our compassionate team handles every aspect of funeral planning, allowing you to focus on honouring your loved one’s life.</p>
+        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">How We Help</h2>
+        <ul class="list-disc ml-6 space-y-2">
+            <li>Venue selection and booking</li>
+            <li>Catering and refreshments coordination</li>
+            <li>Transportation for family and guests</li>
+            <li>Floral arrangements and décor</li>
+            <li>Order of service printing and multimedia</li>
+        </ul>
+        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Guidance & Support</h2>
+        <p class="mb-4">We provide step‑by‑step guidance throughout the planning process, ensuring the ceremony reflects your wishes and culture.</p>
+        <a href="../pre-planning.html" class="text-muted-gold underline">Learn about funeral cover & pre‑planning →</a>
+    </main>
+    <footer class="py-10" style="background: var(--charcoal-grey); color: var(--soft-cream);">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 WS Engledoe & Sons Funerals.</p>
+        </div>
+    </footer>
+    <script>
+        // Initialise Lucide and handle dark mode toggling on services pages
+        lucide.createIcons();
+
+        function updateThemeIcon(isDark) {
+            const iconName = isDark ? 'sun' : 'moon';
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', iconName);
+            }
+            lucide.createIcons();
+        }
+
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon(isDark);
+        }
+
+        (function() {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            updateThemeIcon(document.body.classList.contains('dark-mode'));
+        })();
+    </script>
+</body>
+</html>

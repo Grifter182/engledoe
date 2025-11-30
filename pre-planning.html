@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre‑Planning & Funeral Cover – WS Engledoe & Sons</title>
+    <meta name="description" content="Plan ahead with our funeral cover options. Learn how to protect your family from unexpected costs and ensure your wishes are honoured.">
+    <link rel="canonical" href="https://example.com/pre-planning.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --soft-cream:#FDFBF7; --charcoal-grey:#343F4B; --stone:#B2B2B2; --muted-gold:#C0B283; }
+        body { font-family:'Lato',sans-serif; background:var(--soft-cream); color:var(--charcoal-grey); }
+        /* Dark mode overrides */
+        body.dark-mode {
+            --soft-cream:#232A33;
+            --charcoal-grey:#F7F6F2;
+            --stone:#6D6D6D;
+            --muted-gold:#C4AA7B;
+            background: var(--soft-cream);
+            color: var(--charcoal-grey);
+        }
+        .font-display { font-family:'Playfair Display',serif; }
+        .btn-primary { background: var(--charcoal-grey); color: var(--soft-cream); padding: 0.5rem 1rem; border-radius: 0.375rem; }
+    </style>
+</head>
+<body>
+    <header class="sticky top-0 z-50" style="background: var(--soft-cream); box-shadow: 0 2px 4px rgba(178,178,178,0.1);">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-display text-2xl">WS Engledoe & Sons</a>
+            <a href="index.html" class="btn-primary flex items-center"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Home</a>
+            <!-- Theme toggle button -->
+            <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()" class="ml-4 flex items-center" style="color: var(--charcoal-grey);">
+                <i id="theme-icon" data-lucide="moon" class="w-5 h-5"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">Pre‑Planning & Funeral Cover</h1>
+        <p class="text-lg mb-4">Planning ahead ensures your wishes are respected and spares your family from financial stress. We offer funeral cover packages and pre‑planning consultations.</p>
+        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Benefits of Pre‑Planning</h2>
+        <ul class="list-disc ml-6 space-y-2">
+            <li>Lock in today’s prices for future services</li>
+            <li>Ensure your preferences are documented</li>
+            <li>Provide peace of mind for your family</li>
+            <li>Simplify decision‑making during emotional times</li>
+        </ul>
+        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Funeral Cover Options</h2>
+        <p class="mb-2">Choose a plan that suits your needs and budget. Contact us to discuss details and receive a personalised quote.</p>
+        <table class="w-full mt-4 border-collapse">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border p-2 text-left">Plan</th>
+                    <th class="border p-2 text-left">Coverage</th>
+                    <th class="border p-2 text-left">Includes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border p-2">Silver</td>
+                    <td class="border p-2">Up to R25 000</td>
+                    <td class="border p-2">Basic funeral services, coffin, transport</td>
+                </tr>
+                <tr class="bg-gray-100">
+                    <td class="border p-2">Gold</td>
+                    <td class="border p-2">Up to R50 000</td>
+                    <td class="border p-2">Premium coffin, gravesite, hearse, floral arrangements</td>
+                </tr>
+                <tr>
+                    <td class="border p-2">Platinum</td>
+                    <td class="border p-2">Up to R75 000</td>
+                    <td class="border p-2">Choice of venue, catering and personalised memorial</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="mt-4">For customised plans or to start pre‑planning, please <a href="#" class="text-muted-gold underline">contact us</a>.</p>
+    </main>
+    <footer class="py-10" style="background: var(--charcoal-grey); color: var(--soft-cream);">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 WS Engledoe & Sons Funerals.</p>
+        </div>
+    </footer>
+    <script>
+        // Initialise Lucide and handle dark mode toggling
+        lucide.createIcons();
+
+        function updateThemeIcon(isDark) {
+            const iconName = isDark ? 'sun' : 'moon';
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.setAttribute('data-lucide', iconName);
+            }
+            lucide.createIcons();
+        }
+
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcon(isDark);
+        }
+
+        (function() {
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            updateThemeIcon(document.body.classList.contains('dark-mode'));
+        })();
+    </script>
+</body>
+</html>
