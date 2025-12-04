@@ -1,0 +1,6 @@
+# robots.txt for WS Engledoe & Sons Funerals
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://wsefunerals.netlify.app/sitemap.xml
