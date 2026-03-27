@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WS Engledoe & Seuns – Begrafnisdienste in Kaapstad</title>
-    <meta name="description" content="WS Engledoe & Seuns is 'n familiebesigheid wat sedert 1955 begrafnis- en verassingsdienste aan Kaapstad se gemeenskappe bied. Skakel ons 24/7 vir hulp.">
+    <title>Betroubare Begrafnisdienste in Kaapstad | WS Engledoe & Seuns – Ter aarde bestelking & Verassing</title>
+    <meta name="description" content="WS Engledoe & Seuns is 'n betroubare, betrouenswaardig familiebegrafnishuis in Kaapstad sedert 1955. Ons bied medelydende begrafnisdienste, ter aarde bestelking, en verassing regoor die Wes-Kaap. Skakel 24/7.">
+    <meta name="keywords" content="begrafnisdienste, ter aarde bestelking, verassing, Kaapstad, Wes-Kaap, betroubare begrafnishuis, betrouenswaardige begrafnisondernemer, begrafnissaal, Salt River, familie begrafnishuis">
     <link rel="canonical" href="https://wsefunerals.netlify.app/af/">
     <link rel="alternate" hreflang="en" href="https://wsefunerals.netlify.app/">
     <link rel="alternate" hreflang="af" href="https://wsefunerals.netlify.app/af/">
@@ -13,8 +14,8 @@
     <link rel="alternate" hreflang="x-default" href="https://wsefunerals.netlify.app/">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="WS Engledoe & Seuns – Begrafnisdienste in Kaapstad">
-    <meta property="og:description" content="WS Engledoe & Seuns is 'n familiebesigheid wat sedert 1955 begrafnis- en verassingsdienste aan Kaapstad se gemeenskappe bied. Skakel ons 24/7 vir hulp.">
+    <meta property="og:title" content="Betroubare Begrafnisdienste in Kaapstad | WS Engledoe & Seuns">
+    <meta property="og:description" content="Betrouenswaardige familiebegrafnishuis sedert 1955. Medelydende begrafnis en verassingsdienste in Kaapstad. Beskikbaar 24/7.">
     <meta property="og:image" content="https://wsefunerals.netlify.app/Hero.webp">
     <meta property="og:url" content="https://wsefunerals.netlify.app/af/">
     <meta name="twitter:card" content="summary_large_image">
@@ -311,8 +312,29 @@
             mobileMenu.classList.toggle('hidden');
         });
         function changeLanguage(lang) {
+            // Language switcher: properly handle switching between language versions
             const path = window.location.pathname;
-            const newPath = '/' + lang + (path === '/' ? '/index.html' : path);
+            const supportedLangs = ['af', 'xh', 'zu'];
+
+            // Remove any existing language prefix from the path
+            let cleanPath = path;
+            for (const l of supportedLangs) {
+                if (path.startsWith('/' + l + '/')) {
+                    cleanPath = path.substring(l.length + 1);
+                    break;
+                }
+            }
+
+            // Build the new path
+            let newPath;
+            if (lang === 'en') {
+                // English is at root
+                newPath = cleanPath === '/index.html' || cleanPath === '/' ? '/' : cleanPath;
+            } else {
+                // Other languages are in subdirectories
+                newPath = '/' + lang + (cleanPath === '/' ? '/index.html' : cleanPath);
+            }
+
             window.location.href = newPath;
         }
         function updateThemeIcon(isDark) {

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WS Engledoe & Sons – Iinkonzo zomngcwabo eKapa</title>
-    <meta name="description" content="WS Engledoe & Sons yishishini losapho elinikezela ngeenkonzo zomngcwabo eKapa ukusukela ngo-1955. Sikhokela iintsapho ngovelwano nangentlonipho. Sitsalele ucingo 24/7.">
+    <title>Iinkonzo zomngcwabo ezinokuthenjwa eKapa | WS Engledoe & Sons – Ukungcwatywa & Ukutshiswa</title>
+    <meta name="description" content="WS Engledoe & Sons yishishini losapho elinokuthenjwa nelithembekileyo eKapa ukusukela ngo-1955. Sinikezela ngeenkonzo zomngcwabo, ukungcwatywa, nokutshiswa kumntla-koloni. Sitsalele 24/7.">
+    <meta name="keywords" content="iinkonzo zomngcwabo, ukungcwatywa, ukutshiswa, eKapa, Ntshona Koloni, ishishini lomngcwabo elinokuthenjwa, abakhokeli bomngcwabo abathembekileyo, igumbi lomngcwabo, Salt River, ishishini losapho lomngcwabo">
     <link rel="canonical" href="https://wsefunerals.netlify.app/xh/">
     <link rel="alternate" hreflang="en" href="https://wsefunerals.netlify.app/">
     <link rel="alternate" hreflang="af" href="https://wsefunerals.netlify.app/af/">
@@ -13,8 +14,8 @@
     <link rel="alternate" hreflang="x-default" href="https://wsefunerals.netlify.app/">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="WS Engledoe & Sons – Iinkonzo zomngcwabo eKapa">
-    <meta property="og:description" content="WS Engledoe & Sons yishishini losapho elinikezela ngeenkonzo zomngcwabo eKapa ukusukela ngo-1955. Sikhokela iintsapho ngovelwano nangentlonipho. Sitsalele ucingo 24/7.">
+    <meta property="og:title" content="Iinkonzo zomngcwabo ezinokuthenjwa eKapa | WS Engledoe & Sons">
+    <meta property="og:description" content="Ishishini losapho lomngcwabo elinokuthenjwa ukusukela ngo-1955. Iinkonzo zomngcwabo, ukungcwatywa nokutshiswa eKapa. Siyafumaneka 24/7.">
     <meta property="og:image" content="https://wsefunerals.netlify.app/Hero.webp">
     <meta property="og:url" content="https://wsefunerals.netlify.app/xh/">
     <meta name="twitter:card" content="summary_large_image">
@@ -311,8 +312,29 @@
             mobileMenu.classList.toggle('hidden');
         });
         function changeLanguage(lang) {
+            // Language switcher: properly handle switching between language versions
             const path = window.location.pathname;
-            const newPath = '/' + lang + (path === '/' ? '/index.html' : path);
+            const supportedLangs = ['af', 'xh', 'zu'];
+
+            // Remove any existing language prefix from the path
+            let cleanPath = path;
+            for (const l of supportedLangs) {
+                if (path.startsWith('/' + l + '/')) {
+                    cleanPath = path.substring(l.length + 1);
+                    break;
+                }
+            }
+
+            // Build the new path
+            let newPath;
+            if (lang === 'en') {
+                // English is at root
+                newPath = cleanPath === '/index.html' || cleanPath === '/' ? '/' : cleanPath;
+            } else {
+                // Other languages are in subdirectories
+                newPath = '/' + lang + (cleanPath === '/' ? '/index.html' : cleanPath);
+            }
+
             window.location.href = newPath;
         }
         function updateThemeIcon(isDark) {
