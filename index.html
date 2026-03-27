@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WS Engledoe & Sons – Funeral Services in Cape Town & Western Cape</title>
-    <!-- Updated meta description to emphasise broader service area and additional offerings -->
-    <meta name="description" content="Founded in 1955, WS Engledoe & Sons is a family‑run funeral home in Salt River, Cape Town.  We provide compassionate burial, cremation, parlour and funeral planning services across the Western Cape.  Call us 24/7 for immediate assistance.">
+    <title>Reputable Funeral Services in Cape Town | WS Engledoe & Sons – Burial & Cremation</title>
+    <meta name="description" content="WS Engledoe & Sons is a reputable, trustworthy family-run funeral home in Cape Town since 1955. We offer compassionate funeral services, burial services, and cremation across the Western Cape. Call 24/7 for dignified, affordable care.">
+    <meta name="keywords" content="funeral services, burial services, cremation, Cape Town, Western Cape, reputable funeral home, trustworthy funeral directors, funeral parlour, Salt River, family funeral home">
     <link rel="canonical" href="https://wsefunerals.netlify.app/">
     <link rel="alternate" hreflang="en" href="https://wsefunerals.netlify.app/">
     <link rel="alternate" hreflang="af" href="https://wsefunerals.netlify.app/af/">
@@ -14,8 +14,8 @@
     <link rel="alternate" hreflang="x-default" href="https://wsefunerals.netlify.app/">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="WS Engledoe & Sons Funerals – Cape Town">
-    <meta property="og:description" content="Family‑run funeral home offering burials, cremations, planning and full parlour services in Cape Town.  Available 24/7.">
+    <meta property="og:title" content="Reputable Funeral Services in Cape Town | WS Engledoe & Sons">
+    <meta property="og:description" content="Trustworthy family-run funeral home since 1955. Compassionate burial services, cremation, and funeral planning in Cape Town. Available 24/7.">
     <meta property="og:image" content="https://wsefunerals.netlify.app/Hero.webp">
     <meta property="og:url" content="https://wsefunerals.netlify.app/">
     <meta name="twitter:card" content="summary_large_image">
@@ -25,7 +25,8 @@
     {
       "@context": "https://schema.org",
       "@type": "FuneralHome",
-      "name": "WS Engledoe & Sons Funerals",
+      "name": "WS Engledoe & Sons Funerals",
+      "description": "Reputable and trustworthy family-run funeral home offering compassionate funeral services, burial services, and cremation in Cape Town since 1955.",
       "url": "https://wsefunerals.netlify.app/",
       "telephone": "+27 82 494 9852",
       "address": {
@@ -36,8 +37,49 @@
         "postalCode": "7925",
         "addressCountry": "ZA"
       },
-      "areaServed": "Cape Town, South Africa",
-      "foundingDate": "1955"
+      "areaServed": ["Cape Town", "Western Cape", "South Africa"],
+      "foundingDate": "1955",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Funeral Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Burial Services"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cremation Services"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Funeral Planning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Full Parlour Services"
+            }
+          }
+        ]
+      }
     }
     </script>
 
@@ -386,9 +428,29 @@
             mobileMenu.classList.toggle('hidden');
         });
         function changeLanguage(lang) {
-            // basic language switcher: navigate to subdirectory
+            // Language switcher: properly handle switching between language versions
             const path = window.location.pathname;
-            const newPath = '/' + lang + (path === '/' ? '/index.html' : path);
+            const supportedLangs = ['af', 'xh', 'zu'];
+
+            // Remove any existing language prefix from the path
+            let cleanPath = path;
+            for (const l of supportedLangs) {
+                if (path.startsWith('/' + l + '/')) {
+                    cleanPath = path.substring(l.length + 1);
+                    break;
+                }
+            }
+
+            // Build the new path
+            let newPath;
+            if (lang === 'en') {
+                // English is at root
+                newPath = cleanPath === '/index.html' || cleanPath === '/' ? '/' : cleanPath;
+            } else {
+                // Other languages are in subdirectories
+                newPath = '/' + lang + (cleanPath === '/' ? '/index.html' : cleanPath);
+            }
+
             window.location.href = newPath;
         }
 
