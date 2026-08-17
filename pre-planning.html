@@ -29,7 +29,77 @@
             color: var(--charcoal-grey);
         }
         .font-display { font-family:'Playfair Display',serif; }
-        .btn-primary { background: var(--charcoal-grey); color: var(--soft-cream); padding: 0.5rem 1rem; border-radius: 0.375rem; }
+        .btn-primary {
+            background: var(--charcoal-grey);
+            color: var(--soft-cream);
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px;
+            transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(52,63,75,0.2); }
+        .btn-primary:focus-visible, .dialog-close:focus-visible, .enquiry-field:focus-visible {
+            outline: 3px solid var(--muted-gold);
+            outline-offset: 3px;
+        }
+        .enquiry-invitation {
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+            padding: clamp(1.5rem, 5vw, 3rem);
+            border: 1px solid color-mix(in srgb, var(--muted-gold) 55%, transparent);
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, color-mix(in srgb, var(--muted-gold) 15%, var(--soft-cream)), var(--soft-cream) 58%);
+            box-shadow: 0 20px 60px rgba(52,63,75,0.08);
+        }
+        .enquiry-invitation::after {
+            content: '';
+            position: absolute;
+            width: 11rem;
+            height: 11rem;
+            right: -4rem;
+            top: -5rem;
+            border: 1px solid color-mix(in srgb, var(--muted-gold) 45%, transparent);
+            border-radius: 50%;
+        }
+        .enquiry-dialog {
+            width: min(92vw, 42rem);
+            max-height: 90vh;
+            padding: 0;
+            border: 0;
+            border-radius: 1.5rem;
+            color: var(--charcoal-grey);
+            background: var(--soft-cream);
+            box-shadow: 0 30px 90px rgba(20,27,34,0.35);
+        }
+        .enquiry-dialog::backdrop { background: rgba(30,38,47,0.72); backdrop-filter: blur(5px); }
+        .enquiry-dialog[open] { animation: dialog-enter 220ms ease-out; }
+        .dialog-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            color: var(--charcoal-grey);
+            background: color-mix(in srgb, var(--stone) 20%, transparent);
+        }
+        .enquiry-field {
+            width: 100%;
+            padding: 0.75rem 0.9rem;
+            border: 1px solid color-mix(in srgb, var(--stone) 70%, transparent);
+            border-radius: 0.75rem;
+            color: var(--charcoal-grey);
+            background: var(--soft-cream);
+        }
+        body.dialog-open { overflow: hidden; }
+        @keyframes dialog-enter {
+            from { opacity: 0; transform: translateY(14px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .enquiry-dialog[open] { animation: none; }
+            .btn-primary { transition: none; }
+        }
     </style>
 </head>
 <body>
@@ -48,43 +118,84 @@
         <p class="text-lg mb-4">Planning ahead in Cape Town and across the Western Cape ensures your wishes are respected and spares your family from financial stress.  Our family‑run team will walk you through funeral cover options, cremation or burial decisions and eco‑friendly choices that honour local traditions.</p>
         <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Benefits of Pre‑Planning</h2>
         <ul class="list-disc ml-6 space-y-2">
-            <li>Lock in today’s prices for future services</li>
+            <li>Record your wishes in a clear, thoughtful plan</li>
             <li>Ensure your preferences are documented</li>
             <li>Provide peace of mind for your family</li>
             <li>Simplify decision‑making during emotional times</li>
         </ul>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Funeral Cover Options</h2>
-        <p class="mb-2">Choose a plan that suits your needs and budget. Contact us to discuss details and receive a personalised quote.</p>
-        <table class="w-full mt-4 border-collapse">
-            <thead>
-                <tr class="bg-gray-200">
-                    <th class="border p-2 text-left">Plan</th>
-                    <th class="border p-2 text-left">Coverage</th>
-                    <th class="border p-2 text-left">Includes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="border p-2">Silver</td>
-                    <td class="border p-2">Up to R25 000</td>
-                    <td class="border p-2">Basic funeral services, coffin, transport</td>
-                </tr>
-                <tr class="bg-gray-100">
-                    <td class="border p-2">Gold</td>
-                    <td class="border p-2">Up to R50 000</td>
-                    <td class="border p-2">Premium coffin, gravesite, hearse, floral arrangements</td>
-                </tr>
-                <tr>
-                    <td class="border p-2">Platinum</td>
-                    <td class="border p-2">Up to R75 000</td>
-                    <td class="border p-2">Choice of venue, catering and personalised memorial</td>
-                </tr>
-            </tbody>
-        </table>
+        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">A Plan Shaped Around Your Family</h2>
+        <div class="enquiry-invitation">
+            <div class="relative z-10 max-w-2xl">
+                <span class="font-semibold uppercase tracking-widest text-sm" style="color: var(--muted-gold);">Personal guidance</span>
+                <h3 class="font-display text-3xl md:text-4xl font-bold mt-3 mb-4">Every farewell deserves a considered conversation.</h3>
+                <p class="text-lg leading-relaxed mb-6">Tell us what matters to you and our family will help you understand the available options, practical steps and costs—without pressure or a one-size-fits-all package.</p>
+                <button type="button" id="open-enquiry-dialog" class="btn-primary inline-flex items-center gap-2 font-semibold">
+                    <i data-lucide="message-circle" class="w-5 h-5" aria-hidden="true"></i>
+                    Make an enquiry
+                </button>
+                <p class="mt-4 text-sm">Prefer to speak now? Call <a href="tel:+27824949852" class="underline font-semibold">082 49 49 852</a>, 24 hours a day.</p>
+            </div>
+        </div>
+
+        <dialog id="enquiry-dialog" class="enquiry-dialog" aria-labelledby="enquiry-dialog-title">
+            <div class="p-6 md:p-9">
+                <div class="flex items-start justify-between gap-6 mb-6">
+                    <div>
+                        <span class="font-semibold uppercase tracking-widest text-sm" style="color: var(--muted-gold);">Private enquiry</span>
+                        <h2 id="enquiry-dialog-title" class="font-display text-3xl md:text-4xl font-bold mt-2">How can we support you?</h2>
+                        <p class="mt-3 leading-relaxed">Share as much or as little as you are comfortable with. We’ll respond personally to discuss the next step.</p>
+                    </div>
+                    <button type="button" id="close-enquiry-dialog" class="dialog-close flex-shrink-0" aria-label="Close enquiry form">
+                        <i data-lucide="x" class="w-5 h-5" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <form name="pre-planning-enquiry" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" class="space-y-5">
+                    <input type="hidden" name="form-name" value="pre-planning-enquiry">
+                    <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="enquiry-name" class="block mb-2 font-semibold">Your name</label>
+                            <input id="enquiry-name" name="name" type="text" autocomplete="name" required class="enquiry-field">
+                        </div>
+                        <div>
+                            <label for="enquiry-phone" class="block mb-2 font-semibold">Phone number</label>
+                            <input id="enquiry-phone" name="phone" type="tel" autocomplete="tel" required class="enquiry-field">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="enquiry-email" class="block mb-2 font-semibold">Email <span class="font-normal">(optional)</span></label>
+                            <input id="enquiry-email" name="email" type="email" autocomplete="email" class="enquiry-field">
+                        </div>
+                        <div>
+                            <label for="enquiry-service" class="block mb-2 font-semibold">I’m enquiring about</label>
+                            <select id="enquiry-service" name="service" class="enquiry-field">
+                                <option>Pre-planning</option>
+                                <option>Burial</option>
+                                <option>Cremation</option>
+                                <option>Funeral cover</option>
+                                <option>Something else</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="enquiry-message" class="block mb-2 font-semibold">What would you like help with?</label>
+                        <textarea id="enquiry-message" name="message" rows="4" class="enquiry-field" placeholder="You can include preferred arrangements, timing, or any questions you have."></textarea>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-1">
+                        <button type="submit" class="btn-primary inline-flex items-center justify-center gap-2 font-semibold">
+                            Send enquiry
+                            <i data-lucide="arrow-right" class="w-5 h-5" aria-hidden="true"></i>
+                        </button>
+                        <p class="text-sm">Your details are used only to respond to this enquiry.</p>
+                    </div>
+                </form>
+            </div>
+        </dialog>
 
         <!-- Additional guidance for pre‑planning in the Western Cape -->
         <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Why Pre‑Plan in the Western Cape?</h2>
-        <p class="mb-4">Cape Town’s cemeteries have limited space, and costs continue to rise.  Pre‑planning allows you to secure a burial plot or choose cremation while locking in today’s prices and reducing stress on your loved ones.</p>
+        <p class="mb-4">Cape Town’s cemeteries have limited space. Pre‑planning gives you time to consider a burial plot or cremation, document your wishes and reduce uncertainty for your loved ones.</p>
         <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Documents Required</h2>
         <ul class="list-disc ml-6 space-y-2">
             <li>Medical certificate of cause of death (Form BI‑1663)</li>
@@ -135,6 +246,21 @@
             }
             updateThemeIcon(document.body.classList.contains('dark-mode'));
         })();
+
+        const enquiryDialog = document.getElementById('enquiry-dialog');
+        const openEnquiryDialog = document.getElementById('open-enquiry-dialog');
+        const closeEnquiryDialog = document.getElementById('close-enquiry-dialog');
+
+        openEnquiryDialog.addEventListener('click', () => {
+            enquiryDialog.showModal();
+            document.body.classList.add('dialog-open');
+        });
+
+        closeEnquiryDialog.addEventListener('click', () => enquiryDialog.close());
+        enquiryDialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+        enquiryDialog.addEventListener('click', (event) => {
+            if (event.target === enquiryDialog) enquiryDialog.close();
+        });
     </script>
 </body>
 </html>
