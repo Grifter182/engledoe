@@ -3,95 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About WS Engledoe & Sons – Cape Town’s Family Funeral Home</title>
-    <meta name="description" content="Learn the history of WS Engledoe & Sons, a family‑owned funeral home serving Cape Town and the Western Cape since 1955.  Discover our heritage, values and commitment to compassionate service.">
+    <title>About WS Engledoe &amp; Sons – Cape Town’s Family Funeral Home</title>
+    <meta name="description" content="Learn the history of WS Engledoe &amp; Sons, a family-owned funeral home serving Cape Town and the Western Cape since 1955. Discover our heritage, values and commitment to compassionate service.">
     <link rel="canonical" href="https://wsefunerals.netlify.app/about.html">
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="About WS Engledoe & Sons – Cape Town’s Family Funeral Home">
-    <meta property="og:description" content="Learn the history of our family funeral home serving Cape Town and the Western Cape since 1955.  Discover our heritage, values and commitment to compassionate service.">
+    <meta property="og:title" content="About WS Engledoe &amp; Sons – Cape Town’s Family Funeral Home">
+    <meta property="og:description" content="Learn the history of WS Engledoe &amp; Sons, a family-owned funeral home serving Cape Town and the Western Cape since 1955. Discover our heritage, values and commitment to compassionate service.">
     <meta property="og:image" content="https://wsefunerals.netlify.app/Hero.webp">
     <meta property="og:url" content="https://wsefunerals.netlify.app/about.html">
     <meta name="twitter:card" content="summary_large_image">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root { --soft-cream:#FDFBF7; --charcoal-grey:#343F4B; --stone:#B2B2B2; --muted-gold:#C0B283; }
-        body { font-family:'Lato',sans-serif; background:var(--soft-cream); color:var(--charcoal-grey); }
-        /* Dark mode overrides */
-        body.dark-mode {
-            --soft-cream:#232A33;
-            --charcoal-grey:#F7F6F2;
-            --stone:#6D6D6D;
-            --muted-gold:#C4AA7B;
-            background: var(--soft-cream);
-            color: var(--charcoal-grey);
-        }
-        .font-display { font-family:'Playfair Display',serif; }
-        .btn-primary { background: var(--charcoal-grey); color: var(--soft-cream); padding: 0.5rem 1rem; border-radius: 0.375rem; }
-    </style>
+    <script>try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark-mode');}}catch(e){}</script>
+    <script src="/assets/site.js" defer></script>
 </head>
 <body>
-    <header class="sticky top-0 z-50" style="background: var(--soft-cream); box-shadow: 0 2px 4px rgba(178,178,178,0.1);">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-display text-2xl">WS Engledoe & Sons</a>
-            <a href="index.html" class="btn-primary flex items-center"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Home</a>
-            <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()" class="ml-4 flex items-center" style="color: var(--charcoal-grey);">
-                <i id="theme-icon" data-lucide="moon" class="w-5 h-5"></i>
-            </button>
-        </nav>
-    </header>
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">Our Story</h1>
-        <p class="text-lg mb-4">Founded in 1955 by William Sydney Engledoe, our funeral home has been a trusted presence in the heart of Cape Town for generations.  What started as a small parlour in the City Bowl has grown into a family‑run business serving communities across the Western Cape.  Throughout the decades, we have remained committed to compassionate, personalised care.</p>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Heritage in the Western Cape</h2>
-        <p class="mb-4">From the bustling streets of District Six to the serene vineyards of the Winelands, we have walked alongside families from every corner of our province.  Our experience spans diverse cultures and traditions, and we honour each service with sensitivity and respect.  Many Cape Towners know us for our attentive guidance during some of life’s most challenging moments.</p>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Our Values</h2>
-        <ul class="list-disc ml-6 space-y-2 mb-4">
-            <li><strong>Compassion:</strong> We approach every family with empathy, understanding that grief is deeply personal.</li>
-            <li><strong>Integrity:</strong> Transparency and honesty underpin everything we do, from pricing to service delivery.</li>
-            <li><strong>Tradition & Innovation:</strong> While we respect long‑held customs, we also embrace new approaches like eco‑friendly funerals and digital memorials.</li>
-            <li><strong>Local Service:</strong> As Cape Town locals, we understand the unique needs of our communities and collaborate with local suppliers and venues.</li>
-        </ul>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Looking Ahead</h2>
-        <p class="mb-4">As our city grows and changes, so do we.  We continue to invest in training, facilities and technology to provide respectful, modern services while staying true to our roots.  Thank you for trusting WS Engledoe & Sons with your family’s final farewells.</p>
-        <div class="mt-6">
-            <a href="pre-planning.html" class="btn-primary inline-flex items-center" style="background: var(--muted-gold); color: var(--charcoal-grey); padding: 0.5rem 1rem; border-radius: 0.375rem;">
-                <i data-lucide="heart" class="w-4 h-4 mr-2"></i>
-                Learn about pre‑planning
-            </a>
-            <a href="index.html#contact" class="ml-4 underline text-muted-gold">Contact us →</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <div class="header-inner container mx-auto px-6">
+            <a class="brand" href="/">W.&nbsp;S. Engledoe &amp; Sons</a>
+            <nav class="primary-nav" aria-label="Primary">
+                <a class="nav-link" href="/#services">Services</a>
+                <a class="nav-link" href="/about.html">About</a>
+                <a class="nav-link" href="/pre-planning.html">Using a Policy</a>
+                <a class="nav-link" href="/resources.html">Resources</a>
+                <a class="nav-link" href="/testimonials.html">Testimonials</a>
+                <a class="nav-link" href="/#contact">Contact</a>
+            </nav>
+            <div class="header-tools">
+                <a class="nav-cta" href="tel:+27824949852">
+                    <i data-lucide="phone" class="w-4 h-4"></i>082 49 49 852
+                </a>
+                <div class="lang-select">
+                    <label class="sr-only" for="language-en">Language</label>
+                    <select id="language-en" data-lang-select>
+                        <option value="en" selected>English</option>
+                        <option value="xh">isiXhosa</option>
+                        <option value="zu">isiZulu</option>
+                        <option value="af">Afrikaans</option>
+                    </select>
+                </div>
+                <button type="button" class="icon-button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+                    <i data-theme-icon data-lucide="moon" class="w-5 h-5"></i>
+                </button>
+                <button type="button" id="mobile-menu-button" class="icon-button mobile-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
         </div>
+        <div class="mobile-panel" id="mobile-menu">
+            <div class="mobile-panel-inner container mx-auto px-6">
+                <a class="mobile-link" href="/#services">Services</a>
+                <a class="mobile-link" href="/about.html">About</a>
+                <a class="mobile-link" href="/pre-planning.html">Using a Policy</a>
+                <a class="mobile-link" href="/resources.html">Resources</a>
+                <a class="mobile-link" href="/testimonials.html">Testimonials</a>
+                <a class="mobile-link" href="/#contact">Contact</a>
+                <div class="mobile-actions">
+                    <a class="btn-primary px-5 py-3 rounded-md font-ui text-sm" href="tel:+27824949852">
+                        <i data-lucide="phone" class="w-4 h-4"></i>Call 24/7
+                    </a>
+                <div class="lang-select">
+                    <label class="sr-only" for="language-mobile-en">Language</label>
+                    <select id="language-mobile-en" data-lang-select>
+                        <option value="en" selected>English</option>
+                        <option value="xh">isiXhosa</option>
+                        <option value="zu">isiZulu</option>
+                        <option value="af">Afrikaans</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container mx-auto px-6 max-w-5xl relative z-10">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="/">Home</a>
+                    <span class="sep" aria-hidden="true">/</span>
+                    <span aria-current="page">About</span>
+                </nav>
+                <p class="eyebrow mb-5">A family name built on service</p>
+                <div class="gold-rule mb-7"></div>
+                <h1 class="text-4xl md:text-6xl mb-6">Seventy years of standing<br class="hidden md:block"> beside Cape Town families.</h1>
+                <p class="page-lede text-lg md:text-xl max-w-3xl leading-relaxed">Founded by William Sydney Engledoe in 1955, WS Engledoe &amp; Sons has grown from a small City Bowl parlour into a family-run funeral home trusted across the Western Cape — without ever handing your family to a stranger.</p>
+            </div>
+        </section>
+
+        <section class="trust-ribbon" aria-label="Our record at a glance">
+            <div class="container mx-auto px-6 grid md:grid-cols-3">
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="landmark" class="w-6 h-6 flex-shrink-0" style="color: var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">Established 1955</strong><span class="text-sm" style="color:#C9C8C3;">Three generations of the same family</span></div>
+                </div>
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="map-pin" class="w-6 h-6 flex-shrink-0" style="color: var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">Rooted in Salt River</strong><span class="text-sm" style="color:#C9C8C3;">Serving the City Bowl to the Winelands</span></div>
+                </div>
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="hand-heart" class="w-6 h-6 flex-shrink-0" style="color: var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">Independent, not corporate</strong><span class="text-sm" style="color:#C9C8C3;">One team, answerable to your family</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-6 max-w-6xl grid lg:grid-cols-12 gap-14">
+                <div class="lg:col-span-7 prose">
+                    <h2>Our story</h2>
+                    <p class="lede">Founded in 1955 by William Sydney Engledoe, our funeral home has been a trusted presence in the heart of Cape Town for generations. What started as a small parlour in the City Bowl has grown into a family-run business serving communities across the Western Cape. Throughout the decades, we have remained committed to compassionate, personalised care.</p>
+                    <h2>Heritage in the Western Cape</h2>
+                    <p>From the bustling streets of District Six to the serene vineyards of the Winelands, we have walked alongside families from every corner of our province. Our experience spans diverse cultures and traditions, and we honour each service with sensitivity and respect. Many Cape Townians know us for our attentive guidance during some of life’s most challenging moments.</p>
+                    <h2>Looking ahead</h2>
+                    <p>As our city grows and changes, so do we. We continue to invest in training, facilities and technology to provide respectful, modern services while staying true to our roots. Thank you for trusting WS Engledoe &amp; Sons with your family’s final farewells.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a class="btn-primary px-7 py-4 rounded-md font-ui" href="/pre-planning.html">
+                            <i data-lucide="heart" class="w-4 h-4"></i>Learn about using a policy
+                        </a>
+                        <a class="btn-outline px-7 py-4 rounded-md font-ui" href="/#contact">
+                            Contact us<i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <aside class="lg:col-span-5 lg:sticky lg:top-28 self-start">
+                    <div class="legacy-image mb-10">
+                        <div class="relative overflow-hidden shadow-2xl">
+                            <img src="/family.webp" alt="The WS Engledoe &amp; Sons family team" class="w-full h-auto" loading="lazy">
+                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(35,55,70,.3), transparent 55%);"></div>
+                        </div>
+                        <div class="legacy-stamp text-center" aria-label="Serving families since 1955">
+                            <span class="font-display text-3xl font-bold">1955</span>
+                            <span class="eyebrow mt-1" style="font-size:.58rem;">Our beginning</span>
+                        </div>
+                    </div>
+                    <div class="rail-card">
+                        <p class="eyebrow mb-4">At a glance</p>
+                        <ul>
+                            <li><strong class="font-display text-2xl block">70+</strong><span class="text-sm">years serving the Western Cape</span></li>
+                            <li><strong class="font-display text-2xl block">1 000+</strong><span class="text-sm">families cared for</span></li>
+                            <li><strong class="font-display text-2xl block">4.7</strong><span class="text-sm">average Google rating</span></li>
+                            <li><strong class="font-display text-2xl block">24/7</strong><span class="text-sm">answered by our own team</span></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section-shell py-20 md:py-28 bg-paper">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="grid lg:grid-cols-2 gap-8 items-end mb-14">
+                    <div>
+                        <p class="eyebrow mb-4">What guides every arrangement</p>
+                        <div class="gold-rule mb-6"></div>
+                        <h2 class="font-display text-3xl md:text-5xl font-bold leading-tight">Our values are not a poster on the wall.</h2>
+                    </div>
+                    <p class="text-lg max-w-xl lg:ml-auto leading-relaxed">They are the reason families return to us across generations, and the standard we hold ourselves to on the hardest days.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="hand-heart" class="w-6 h-6"></i></div>
+                        <h3 class="font-display text-2xl font-bold mb-3">Compassion</h3>
+                        <p class="leading-relaxed">We approach every family with empathy, understanding that grief is deeply personal and never runs to a schedule.</p>
+                    </article>
+                    <article class="feature-card md:mt-10">
+                        <div class="feature-icon"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                        <h3 class="font-display text-2xl font-bold mb-3">Integrity</h3>
+                        <p class="leading-relaxed">Transparency and honesty underpin everything we do, from the first quote through to service delivery.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="sprout" class="w-6 h-6"></i></div>
+                        <h3 class="font-display text-2xl font-bold mb-3">Tradition &amp; innovation</h3>
+                        <p class="leading-relaxed">We respect long-held customs while embracing newer approaches such as eco-friendly funerals and digital memorials.</p>
+                    </article>
+                    <article class="feature-card md:mt-10">
+                        <div class="feature-icon"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                        <h3 class="font-display text-2xl font-bold mb-3">Local service</h3>
+                        <p class="leading-relaxed">As Cape Town locals we understand our communities and work with suppliers and venues we know personally.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band py-20 md:py-24">
+            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                <p class="eyebrow mb-4">Here whenever you need us</p>
+                <div class="gold-rule gold-rule-center mb-7"></div>
+                <h2 class="font-display text-3xl md:text-5xl font-bold leading-tight mb-6">One call brings calm, clarity and practical help.</h2>
+                <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-9">Whether you need us today or want to understand your options for later, our family will talk you through it without pressure.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a class="btn-gold px-8 py-4 rounded-md font-ui text-lg" href="tel:+27824949852">
+                        <i data-lucide="phone" class="w-5 h-5"></i>Call 082 49 49 852
+                    </a>
+                    <a class="btn-outline px-8 py-4 rounded-md font-ui text-lg" href="/#contact">
+                        Send a message<i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer class="py-10" style="background: var(--charcoal-grey); color: var(--soft-cream);">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2026 WS Engledoe & Sons Funerals.</p>
+
+    <footer class="site-footer">
+        <div class="container mx-auto px-6">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-brand">W.&nbsp;S. Engledoe &amp; Sons</p>
+                    <div class="gold-rule mt-4 mb-5"></div>
+                    <p class="footer-note">A family-run Cape Town funeral home caring for families across the Western Cape since 1955. Our lines are open every hour of every day.</p>
+                    <a class="btn-gold mt-6 px-5 py-3 rounded-md font-ui text-sm" href="tel:+27824949852">
+                        <i data-lucide="phone" class="w-4 h-4"></i>082 49 49 852
+                    </a>
+                </div>
+                <div>
+                    <p class="footer-heading">Services</p>
+                    <ul class="footer-list">
+                        <li><a href="/services/burials.html">Burial services</a></li>
+                        <li><a href="/services/cremations.html">Cremation services</a></li>
+                        <li><a href="/services/planning.html">Funeral planning</a></li>
+                        <li><a href="/services/parlour.html">Full parlour services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Our firm</p>
+                    <ul class="footer-list">
+                        <li><a href="/about.html">About us</a></li>
+                        <li><a href="/pre-planning.html">Using an existing policy</a></li>
+                        <li><a href="/resources.html">Resources</a></li>
+                        <li><a href="/testimonials.html">Testimonials</a></li>
+                        <li><a href="/privacy-policy.html">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Reach us</p>
+                    <ul class="footer-contact">
+                        <li>
+                            <i data-lucide="phone" class="fc-icon w-4 h-4"></i>
+                            <span>24-hour line<br><a href="tel:+27824949852">082 49 49 852</a></span>
+                        </li>
+                        <li>
+                            <i data-lucide="mail" class="fc-icon w-4 h-4"></i>
+                            <span>Email<br><a href="mailto:v.engledoe@gmail.com">v.engledoe@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <i data-lucide="map-pin" class="fc-icon w-4 h-4"></i>
+                            <span>Visit<br>12 Spencer Road, Salt River, Cape Town, 7925</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">
+                <p>&copy; 2026 WS Engledoe &amp; Sons Funerals. All rights reserved.</p>
+                <p class="footer-credit">by <a href="https://merchanthaus.io" target="_blank" rel="noopener">merchanthaus.io</a></p>
+            </div>
         </div>
     </footer>
-    <script>
-        // Initialise Lucide and handle dark mode toggling on the about page
-        lucide.createIcons();
-        function updateThemeIcon(isDark) {
-            const iconName = isDark ? 'sun' : 'moon';
-            const themeIcon = document.getElementById('theme-icon');
-            if (themeIcon) {
-                themeIcon.setAttribute('data-lucide', iconName);
-            }
-            lucide.createIcons();
-        }
-        function toggleTheme() {
-            const isDark = document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateThemeIcon(isDark);
-        }
-        (function() {
-            const stored = localStorage.getItem('theme');
-            if (stored === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-            updateThemeIcon(document.body.classList.contains('dark-mode'));
-        })();
-    </script>
+
+    <a class="whatsapp-button" href="https://wa.me/27824949852" target="_blank" rel="noopener" aria-label="Chat to our family team on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+        </svg>
+    </a>
 </body>
 </html>

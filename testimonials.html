@@ -3,102 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonials – Hear From Cape Town Families | WS Engledoe & Sons</title>
-    <meta name="description" content="Read testimonials from families across Cape Town and the Western Cape who trusted WS Engledoe & Sons with their funeral arrangements.">
+    <title>Testimonials – Hear From Cape Town Families | WS Engledoe &amp; Sons</title>
+    <meta name="description" content="Read testimonials from families across Cape Town and the Western Cape who trusted WS Engledoe &amp; Sons with their funeral arrangements.">
     <link rel="canonical" href="https://wsefunerals.netlify.app/testimonials.html">
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Testimonials – Hear From Cape Town Families | WS Engledoe & Sons">
-    <meta property="og:description" content="Read testimonials from families across Cape Town and the Western Cape who trusted us with their funeral arrangements.">
+    <meta property="og:title" content="Testimonials – Hear From Cape Town Families | WS Engledoe &amp; Sons">
+    <meta property="og:description" content="Read testimonials from families across Cape Town and the Western Cape who trusted WS Engledoe &amp; Sons with their funeral arrangements.">
     <meta property="og:image" content="https://wsefunerals.netlify.app/Hero.webp">
     <meta property="og:url" content="https://wsefunerals.netlify.app/testimonials.html">
     <meta name="twitter:card" content="summary_large_image">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root { --soft-cream:#FDFBF7; --charcoal-grey:#343F4B; --stone:#B2B2B2; --muted-gold:#C0B283; }
-        body { font-family:'Lato',sans-serif; background:var(--soft-cream); color:var(--charcoal-grey); }
-        /* Dark mode overrides */
-        body.dark-mode {
-            --soft-cream:#232A33;
-            --charcoal-grey:#F7F6F2;
-            --stone:#6D6D6D;
-            --muted-gold:#C4AA7B;
-            background: var(--soft-cream);
-            color: var(--charcoal-grey);
-        }
-        .font-display { font-family:'Playfair Display',serif; }
-        .btn-primary { background: var(--charcoal-grey); color: var(--soft-cream); padding: 0.5rem 1rem; border-radius: 0.375rem; }
-    </style>
+    <script>try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark-mode');}}catch(e){}</script>
+    <script src="/assets/site.js" defer></script>
 </head>
 <body>
-    <header class="sticky top-0 z-50" style="background: var(--soft-cream); box-shadow: 0 2px 4px rgba(178,178,178,0.1);">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-display text-2xl">WS Engledoe & Sons</a>
-            <a href="index.html" class="btn-primary flex items-center"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>Home</a>
-            <button id="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()" class="ml-4 flex items-center" style="color: var(--charcoal-grey);">
-                <i id="theme-icon" data-lucide="moon" class="w-5 h-5"></i>
-            </button>
-        </nav>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+        <div class="header-inner container mx-auto px-6">
+            <a class="brand" href="/">W.&nbsp;S. Engledoe &amp; Sons</a>
+            <nav class="primary-nav" aria-label="Primary">
+                <a class="nav-link" href="/#services">Services</a>
+                <a class="nav-link" href="/about.html">About</a>
+                <a class="nav-link" href="/pre-planning.html">Using a Policy</a>
+                <a class="nav-link" href="/resources.html">Resources</a>
+                <a class="nav-link" href="/testimonials.html">Testimonials</a>
+                <a class="nav-link" href="/#contact">Contact</a>
+            </nav>
+            <div class="header-tools">
+                <a class="nav-cta" href="tel:+27824949852">
+                    <i data-lucide="phone" class="w-4 h-4"></i>082 49 49 852
+                </a>
+                <div class="lang-select">
+                    <label class="sr-only" for="language-en">Language</label>
+                    <select id="language-en" data-lang-select>
+                        <option value="en" selected>English</option>
+                        <option value="xh">isiXhosa</option>
+                        <option value="zu">isiZulu</option>
+                        <option value="af">Afrikaans</option>
+                    </select>
+                </div>
+                <button type="button" class="icon-button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+                    <i data-theme-icon data-lucide="moon" class="w-5 h-5"></i>
+                </button>
+                <button type="button" id="mobile-menu-button" class="icon-button mobile-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-panel" id="mobile-menu">
+            <div class="mobile-panel-inner container mx-auto px-6">
+                <a class="mobile-link" href="/#services">Services</a>
+                <a class="mobile-link" href="/about.html">About</a>
+                <a class="mobile-link" href="/pre-planning.html">Using a Policy</a>
+                <a class="mobile-link" href="/resources.html">Resources</a>
+                <a class="mobile-link" href="/testimonials.html">Testimonials</a>
+                <a class="mobile-link" href="/#contact">Contact</a>
+                <div class="mobile-actions">
+                    <a class="btn-primary px-5 py-3 rounded-md font-ui text-sm" href="tel:+27824949852">
+                        <i data-lucide="phone" class="w-4 h-4"></i>Call 24/7
+                    </a>
+                <div class="lang-select">
+                    <label class="sr-only" for="language-mobile-en">Language</label>
+                    <select id="language-mobile-en" data-lang-select>
+                        <option value="en" selected>English</option>
+                        <option value="xh">isiXhosa</option>
+                        <option value="zu">isiZulu</option>
+                        <option value="af">Afrikaans</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+        </div>
     </header>
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">Testimonials</h1>
-        <p class="text-lg mb-6">Hear from families who have trusted WS Engledoe & Sons during their time of loss.  We are honoured to be part of the fabric of Cape Town and the Western Cape.</p>
-        <div class="space-y-8">
-            <div class="p-6 border-l-4" style="border-color: var(--muted-gold); background: var(--soft-cream); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <p class="italic mb-2">“WS Engledoe & Sons guided us with kindness and professionalism.  They handled every detail so we could focus on saying goodbye.”</p>
-                <p class="font-semibold">— Sibongile M., Athlone</p>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container mx-auto px-6 max-w-5xl relative z-10">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="/">Home</a>
+                    <span class="sep" aria-hidden="true">/</span>
+                    <span aria-current="page">Testimonials</span>
+                </nav>
+                <p class="eyebrow mb-5">In the words of the families we served</p>
+                <div class="gold-rule mb-7"></div>
+                <h1 class="text-4xl md:text-6xl mb-6">Trusted by Cape Town families,<br class="hidden md:block"> one farewell at a time.</h1>
+                <p class="page-lede text-lg md:text-xl max-w-3xl leading-relaxed">Hear from families who have trusted WS Engledoe &amp; Sons during their time of loss. We are honoured to be part of the fabric of Cape Town and the Western Cape.</p>
             </div>
-            <div class="p-6 border-l-4" style="border-color: var(--muted-gold); background: var(--soft-cream); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <p class="italic mb-2">“From organising the paperwork to finding a beautiful venue in Constantia, they went above and beyond.”</p>
-                <p class="font-semibold">— Pieter V., Bellville</p>
+        </section>
+
+        <section class="trust-ribbon" aria-label="Reputation at a glance">
+            <div class="container mx-auto px-6 grid md:grid-cols-3">
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="star" class="w-6 h-6 flex-shrink-0" style="color: var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">4.7 average rating</strong><span class="text-sm" style="color:#C9C8C3;">From reviewing families on Google</span></div>
+                </div>
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="users" class="w-6 h-6 flex-shrink-0" style="color: var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">1 000+ families</strong><span class="text-sm" style="color:#C9C8C3;">Cared for across the Western Cape</span></div>
+                </div>
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="repeat" class="w-6 h-6 flex-shrink-0" style="color: var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">Generations returning</strong><span class="text-sm" style="color:#C9C8C3;">Families who call us again, years later</span></div>
+                </div>
             </div>
-            <div class="p-6 border-l-4" style="border-color: var(--muted-gold); background: var(--soft-cream); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <p class="italic mb-2">“Our family appreciated the eco‑friendly options and the warmth of the staff.  Their support made all the difference.”</p>
-                <p class="font-semibold">— Fatima A., Rondebosch</p>
+        </section>
+
+        <section class="section-shell py-20 md:py-28">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-7">
+                    <article class="quote-card">
+                        <blockquote>WS Engledoe &amp; Sons guided us with kindness and professionalism. They handled every detail so we could focus on saying goodbye.</blockquote>
+                        <cite>Sibongile M.<span>Athlone</span></cite>
+                    </article>
+                    <article class="quote-card md:mt-10">
+                        <blockquote>From organising the paperwork to finding a beautiful venue in Constantia, they went above and beyond.</blockquote>
+                        <cite>Pieter V.<span>Bellville</span></cite>
+                    </article>
+                    <article class="quote-card">
+                        <blockquote>Our family appreciated the eco-friendly options and the warmth of the staff. Their support made all the difference.</blockquote>
+                        <cite>Fatima A.<span>Rondebosch</span></cite>
+                    </article>
+                    <article class="quote-card md:mt-10">
+                        <blockquote>They truly understood our cultural traditions and honoured them with dignity.</blockquote>
+                        <cite>Thando L.<span>Khayelitsha</span></cite>
+                    </article>
+                </div>
+                <div class="mt-14 max-w-3xl">
+                    <p class="eyebrow mb-4">Share your experience</p>
+                    <div class="gold-rule mb-6"></div>
+                    <p class="text-lg leading-relaxed mb-7">If our family cared for yours, we would be grateful to hear about it. Your words help other Cape Town families decide who to call.</p>
+                    <a class="btn-primary px-7 py-4 rounded-md font-ui" href="/#contact">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>Tell us your story
+                    </a>
+                </div>
             </div>
-            <div class="p-6 border-l-4" style="border-color: var(--muted-gold); background: var(--soft-cream); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <p class="italic mb-2">“They truly understood our cultural traditions and honoured them with dignity.”</p>
-                <p class="font-semibold">— Thando L., Khayelitsha</p>
+        </section>
+
+        <section class="cta-band py-20 md:py-24">
+            <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                <p class="eyebrow mb-4">Whenever the time comes</p>
+                <div class="gold-rule gold-rule-center mb-7"></div>
+                <h2 class="font-display text-3xl md:text-5xl font-bold leading-tight mb-6">The same care, waiting for your family.</h2>
+                <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-9">Speak to the people who will actually be with you on the day — not a call centre.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a class="btn-gold px-8 py-4 rounded-md font-ui text-lg" href="tel:+27824949852">
+                        <i data-lucide="phone" class="w-5 h-5"></i>Call 082 49 49 852
+                    </a>
+                    <a class="btn-outline px-8 py-4 rounded-md font-ui text-lg" href="/#contact">
+                        Send a message<i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="mt-8">
-            <a href="pre-planning.html" class="btn-primary inline-flex items-center" style="background: var(--muted-gold); color: var(--charcoal-grey); padding: 0.5rem 1rem; border-radius: 0.375rem;">
-                <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i>
-                Share your experience
-            </a>
-            <a href="index.html#contact" class="ml-4 underline text-muted-gold">Contact us →</a>
-        </div>
+        </section>
     </main>
-    <footer class="py-10" style="background: var(--charcoal-grey); color: var(--soft-cream);">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2026 WS Engledoe & Sons Funerals.</p>
+
+    <footer class="site-footer">
+        <div class="container mx-auto px-6">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-brand">W.&nbsp;S. Engledoe &amp; Sons</p>
+                    <div class="gold-rule mt-4 mb-5"></div>
+                    <p class="footer-note">A family-run Cape Town funeral home caring for families across the Western Cape since 1955. Our lines are open every hour of every day.</p>
+                    <a class="btn-gold mt-6 px-5 py-3 rounded-md font-ui text-sm" href="tel:+27824949852">
+                        <i data-lucide="phone" class="w-4 h-4"></i>082 49 49 852
+                    </a>
+                </div>
+                <div>
+                    <p class="footer-heading">Services</p>
+                    <ul class="footer-list">
+                        <li><a href="/services/burials.html">Burial services</a></li>
+                        <li><a href="/services/cremations.html">Cremation services</a></li>
+                        <li><a href="/services/planning.html">Funeral planning</a></li>
+                        <li><a href="/services/parlour.html">Full parlour services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Our firm</p>
+                    <ul class="footer-list">
+                        <li><a href="/about.html">About us</a></li>
+                        <li><a href="/pre-planning.html">Using an existing policy</a></li>
+                        <li><a href="/resources.html">Resources</a></li>
+                        <li><a href="/testimonials.html">Testimonials</a></li>
+                        <li><a href="/privacy-policy.html">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="footer-heading">Reach us</p>
+                    <ul class="footer-contact">
+                        <li>
+                            <i data-lucide="phone" class="fc-icon w-4 h-4"></i>
+                            <span>24-hour line<br><a href="tel:+27824949852">082 49 49 852</a></span>
+                        </li>
+                        <li>
+                            <i data-lucide="mail" class="fc-icon w-4 h-4"></i>
+                            <span>Email<br><a href="mailto:v.engledoe@gmail.com">v.engledoe@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <i data-lucide="map-pin" class="fc-icon w-4 h-4"></i>
+                            <span>Visit<br>12 Spencer Road, Salt River, Cape Town, 7925</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">
+                <p>&copy; 2026 WS Engledoe &amp; Sons Funerals. All rights reserved.</p>
+                <p class="footer-credit">by <a href="https://merchanthaus.io" target="_blank" rel="noopener">merchanthaus.io</a></p>
+            </div>
         </div>
     </footer>
-    <script>
-        // Initialise Lucide and handle dark mode toggling on the testimonials page
-        lucide.createIcons();
-        function updateThemeIcon(isDark) {
-            const iconName = isDark ? 'sun' : 'moon';
-            const themeIcon = document.getElementById('theme-icon');
-            if (themeIcon) {
-                themeIcon.setAttribute('data-lucide', iconName);
-            }
-            lucide.createIcons();
-        }
-        function toggleTheme() {
-            const isDark = document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateThemeIcon(isDark);
-        }
-        (function() {
-            const stored = localStorage.getItem('theme');
-            if (stored === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-            updateThemeIcon(document.body.classList.contains('dark-mode'));
-        })();
-    </script>
+
+    <a class="whatsapp-button" href="https://wa.me/27824949852" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+        </svg>
+    </a>
 </body>
 </html>
