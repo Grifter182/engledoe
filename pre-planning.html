@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre‑Planning & Funeral Cover – Cape Town & Western Cape | WS Engledoe & Sons</title>
-    <meta name="description" content="Plan your funeral or cremation ahead in Cape Town and the Western Cape. Learn about funeral cover, required documents and eco‑friendly options so your family can focus on healing.">
+    <title>Use Your Funeral Policy With a Local Parlour | WS Engledoe & Sons</title>
+    <meta name="description" content="Ask WS Engledoe & Sons about using an existing funeral policy with our independent Cape Town parlour through a simple cession process, subject to policy terms and approval.">
     <link rel="canonical" href="https://wsefunerals.netlify.app/pre-planning.html">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Pre‑Planning & Funeral Cover – Cape Town & Western Cape | WS Engledoe & Sons">
-    <meta property="og:description" content="Plan your funeral or cremation ahead in Cape Town and the Western Cape.  Discover funeral cover options, essential paperwork and environmentally friendly practices.">
+    <meta property="og:title" content="Your Policy. Your Choice of Funeral Parlour. | WS Engledoe & Sons">
+    <meta property="og:description" content="Learn how your existing funeral policy may be used with a trusted, family-run Cape Town parlour without paying the covered amount upfront.">
     <meta property="og:image" content="https://wsefunerals.netlify.app/Hero.webp">
     <meta property="og:url" content="https://wsefunerals.netlify.app/pre-planning.html">
     <meta name="twitter:card" content="summary_large_image">
@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root { --soft-cream:#FDFBF7; --charcoal-grey:#343F4B; --stone:#B2B2B2; --muted-gold:#C0B283; }
+        :root { --soft-cream:#FDFBF7; --charcoal-grey:#343F4B; --stone:#B2B2B2; --muted-gold:#C0B283; --deep-blue:#233746; --paper:#F4EFE5; }
         body { font-family:'Lato',sans-serif; background:var(--soft-cream); color:var(--charcoal-grey); }
         /* Dark mode overrides */
         body.dark-mode {
@@ -25,19 +25,26 @@
             --charcoal-grey:#F7F6F2;
             --stone:#6D6D6D;
             --muted-gold:#C4AA7B;
+            --deep-blue:#18232D;
+            --paper:#2C3540;
             background: var(--soft-cream);
             color: var(--charcoal-grey);
         }
         .font-display { font-family:'Playfair Display',serif; }
-        .btn-primary {
-            background: var(--charcoal-grey);
-            color: var(--soft-cream);
-            padding: 0.75rem 1.25rem;
-            border-radius: 9999px;
-            transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-        }
+        .btn-primary { background: var(--charcoal-grey); color: var(--soft-cream); padding: 0.65rem 1rem; border-radius: 0.375rem; }
+        .hero-panel { background: linear-gradient(90deg, rgba(24,35,45,.97) 0%, rgba(24,35,45,.9) 48%, rgba(24,35,45,.42) 100%), url('Hero.webp') center 34% / cover; }
+        .eyebrow { letter-spacing: .16em; text-transform: uppercase; }
+        .gold-rule { width: 4.5rem; height: 2px; background: var(--muted-gold); }
+        .primary-cta { background: var(--muted-gold); color: #202C35; box-shadow: 0 12px 28px rgba(0,0,0,.18); transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+        .primary-cta:hover { background: #D2C18B; transform: translateY(-2px); box-shadow: 0 16px 34px rgba(0,0,0,.24); }
+        .primary-cta:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid #D2C18B; outline-offset: 3px; }
+        .benefit-card { border-top: 3px solid var(--muted-gold); background: var(--soft-cream); box-shadow: 0 16px 45px rgba(35,55,70,.08); }
+        .step-number { color: var(--muted-gold); font-family:'Playfair Display',serif; font-size: 2.5rem; line-height: 1; }
+        .comparison-table th, .comparison-table td { padding: 1rem; vertical-align: top; border-bottom: 1px solid rgba(178,178,178,.38); }
+        .comparison-table th { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+        .comparison-table tr:last-child td { border-bottom: 0; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(52,63,75,0.2); }
-        .btn-primary:focus-visible, .dialog-close:focus-visible, .enquiry-field:focus-visible {
+        .dialog-close:focus-visible, .enquiry-field:focus-visible {
             outline: 3px solid var(--muted-gold);
             outline-offset: 3px;
         }
@@ -98,7 +105,15 @@
         }
         @media (prefers-reduced-motion: reduce) {
             .enquiry-dialog[open] { animation: none; }
-            .btn-primary { transition: none; }
+            .btn-primary, .primary-cta { transition: none; }
+        }
+        @media (max-width: 640px) {
+            .hero-panel { background: linear-gradient(rgba(24,35,45,.92), rgba(24,35,45,.92)), url('Hero.webp') center / cover; }
+            .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td { display: block; width: 100%; }
+            .comparison-table thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+            .comparison-table tr { padding: 1rem; border-bottom: 1px solid rgba(178,178,178,.55); }
+            .comparison-table td { border: 0; padding: .45rem 0; }
+            .comparison-table td::before { content: attr(data-label); display: block; margin-bottom: .2rem; color: var(--muted-gold); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
         }
     </style>
 </head>
@@ -113,37 +128,86 @@
             </button>
         </nav>
     </header>
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <h1 class="font-display text-4xl md:text-5xl font-bold mb-6">Pre‑Planning & Funeral Cover</h1>
-        <p class="text-lg mb-4">Planning ahead in Cape Town and across the Western Cape ensures your wishes are respected and spares your family from financial stress.  Our family‑run team will walk you through funeral cover options, cremation or burial decisions and eco‑friendly choices that honour local traditions.</p>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Benefits of Pre‑Planning</h2>
-        <ul class="list-disc ml-6 space-y-2">
-            <li>Record your wishes in a clear, thoughtful plan</li>
-            <li>Ensure your preferences are documented</li>
-            <li>Provide peace of mind for your family</li>
-            <li>Simplify decision‑making during emotional times</li>
-        </ul>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">A Plan Shaped Around Your Family</h2>
+    <main>
+        <section class="hero-panel text-white">
+            <div class="container mx-auto px-6 py-20 md:py-28">
+                <div class="max-w-3xl">
+                    <p class="eyebrow text-sm font-bold mb-5" style="color: var(--muted-gold);">Your policy. Your family. Your choice.</p>
+                    <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">You may not have to use the funeral parlour named by your policy.</h1>
+                    <p class="text-lg md:text-xl leading-relaxed max-w-2xl mb-5" style="color:#F3EEE4;">In many cases, an existing funeral policy can be used with WS Engledoe & Sons. Our family-run team helps confirm the policy, explain your options and handle the paperwork with the insurer.</p>
+                    <p class="text-xl md:text-2xl font-bold mb-8" style="color: var(--muted-gold);">ZERO out-of-pocket costs on services covered by an approved policy payout.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                        <a href="tel:+27824949852" class="primary-cta inline-flex items-center justify-center px-7 py-4 rounded-md font-bold text-lg w-full sm:w-auto">
+                            <i data-lucide="phone" class="w-5 h-5 mr-3"></i>Call 082 49 49 852
+                        </a>
+                        <a href="https://wa.me/27824949852?text=Hello%2C%20I%20would%20like%20help%20using%20a%20funeral%20policy%20with%20WS%20Engledoe%20%26%20Sons." class="inline-flex items-center justify-center px-2 py-3 font-bold text-white underline underline-offset-4 w-full sm:w-auto" target="_blank" rel="noopener">
+                            Ask us on WhatsApp
+                        </a>
+                    </div>
+                    <p class="text-xs mt-5 max-w-2xl" style="color:#D9D5CC;">Policy benefits, approval and any additional costs remain subject to the insurer’s terms, the available payout and the services your family selects.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-24" style="background:var(--paper);">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-5 lg:sticky lg:top-28">
+                        <div class="gold-rule mb-6"></div>
+                        <p class="eyebrow text-xs font-bold mb-3" style="color:var(--muted-gold);">Keep the value of your cover</p>
+                        <h2 class="font-display text-3xl md:text-5xl font-bold leading-tight mb-6">Choosing local care does not automatically mean losing your benefits.</h2>
+                        <p class="text-lg leading-relaxed">Before accepting a restricted package, let us check your policy. Your cover may allow your family to choose the personal service, flexibility and funeral arrangements that feel right.</p>
+                    </div>
+                    <div class="lg:col-span-7 grid sm:grid-cols-2 gap-5">
+                        <article class="benefit-card p-7 rounded-sm">
+                            <i data-lucide="badge-check" class="w-7 h-7 mb-5" style="color:var(--muted-gold);"></i>
+                            <h3 class="font-display text-2xl font-bold mb-3">Protect the payout</h3>
+                            <p class="leading-relaxed">We first confirm the policy details and available benefit, so your family can make informed choices before arrangements begin.</p>
+                        </article>
+                        <article class="benefit-card p-7 rounded-sm sm:mt-10">
+                            <i data-lucide="sliders-horizontal" class="w-7 h-7 mb-5" style="color:var(--muted-gold);"></i>
+                            <h3 class="font-display text-2xl font-bold mb-3">Choose with flexibility</h3>
+                            <p class="leading-relaxed">Select the services that matter most, with room to discuss upgrades or personal touches rather than accepting a fixed package.</p>
+                        </article>
+                        <article class="benefit-card p-7 rounded-sm">
+                            <i data-lucide="hand-heart" class="w-7 h-7 mb-5" style="color:var(--muted-gold);"></i>
+                            <h3 class="font-display text-2xl font-bold mb-3">Work with local people</h3>
+                            <p class="leading-relaxed">Speak directly with a Cape Town family funeral home that knows local communities, customs and the importance of personal care.</p>
+                        </article>
+                        <article class="benefit-card p-7 rounded-sm sm:mt-10">
+                            <i data-lucide="file-check-2" class="w-7 h-7 mb-5" style="color:var(--muted-gold);"></i>
+                            <h3 class="font-display text-2xl font-bold mb-3">Leave the paperwork to us</h3>
+                            <p class="leading-relaxed">We guide the cession and claims process, communicate with the insurer and explain each step in plain language.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6 max-w-6xl">
         <div class="enquiry-invitation">
             <div class="relative z-10 max-w-2xl">
-                <span class="font-semibold uppercase tracking-widest text-sm" style="color: var(--muted-gold);">Personal guidance</span>
-                <h3 class="font-display text-3xl md:text-4xl font-bold mt-3 mb-4">Every farewell deserves a considered conversation.</h3>
-                <p class="text-lg leading-relaxed mb-6">Tell us what matters to you and our family will help you understand the available options, practical steps and costs—without pressure or a one-size-fits-all package.</p>
+                <span class="font-semibold uppercase tracking-widest text-sm" style="color: var(--muted-gold);">Private policy enquiry</span>
+                <h2 class="font-display text-3xl md:text-5xl font-bold mt-3 mb-4">Let our family check your cover.</h2>
+                <p class="text-lg leading-relaxed mb-6">Share the policy details you have and we will contact you personally to explain the available benefit, the insurer’s requirements and the next practical step.</p>
                 <button type="button" id="open-enquiry-dialog" class="btn-primary inline-flex items-center gap-2 font-semibold">
                     <i data-lucide="message-circle" class="w-5 h-5" aria-hidden="true"></i>
-                    Make an enquiry
+                    Send a private enquiry
                 </button>
                 <p class="mt-4 text-sm">Prefer to speak now? Call <a href="tel:+27824949852" class="underline font-semibold">082 49 49 852</a>, 24 hours a day.</p>
             </div>
         </div>
+            </div>
+        </section>
 
         <dialog id="enquiry-dialog" class="enquiry-dialog" aria-labelledby="enquiry-dialog-title">
             <div class="p-6 md:p-9">
                 <div class="flex items-start justify-between gap-6 mb-6">
                     <div>
                         <span class="font-semibold uppercase tracking-widest text-sm" style="color: var(--muted-gold);">Private enquiry</span>
-                        <h2 id="enquiry-dialog-title" class="font-display text-3xl md:text-4xl font-bold mt-2">How can we support you?</h2>
-                        <p class="mt-3 leading-relaxed">Share as much or as little as you are comfortable with. We’ll respond personally to discuss the next step.</p>
+                        <h2 id="enquiry-dialog-title" class="font-display text-3xl md:text-4xl font-bold mt-2">How can we help with your policy?</h2>
+                        <p class="mt-3 leading-relaxed">Share as much or as little as you are comfortable with. We will respond personally to discuss your options.</p>
                     </div>
                     <button type="button" id="close-enquiry-dialog" class="dialog-close flex-shrink-0" aria-label="Close enquiry form">
                         <i data-lucide="x" class="w-5 h-5" aria-hidden="true"></i>
@@ -170,17 +234,17 @@
                         <div>
                             <label for="enquiry-service" class="block mb-2 font-semibold">I’m enquiring about</label>
                             <select id="enquiry-service" name="service" class="enquiry-field">
+                                <option>Using an existing funeral policy</option>
                                 <option>Pre-planning</option>
                                 <option>Burial</option>
                                 <option>Cremation</option>
-                                <option>Funeral cover</option>
                                 <option>Something else</option>
                             </select>
                         </div>
                     </div>
                     <div>
                         <label for="enquiry-message" class="block mb-2 font-semibold">What would you like help with?</label>
-                        <textarea id="enquiry-message" name="message" rows="4" class="enquiry-field" placeholder="You can include preferred arrangements, timing, or any questions you have."></textarea>
+                        <textarea id="enquiry-message" name="message" rows="4" class="enquiry-field" placeholder="You can include the insurer, policy details available to you, timing, or any questions you have."></textarea>
                     </div>
                     <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-1">
                         <button type="submit" class="btn-primary inline-flex items-center justify-center gap-2 font-semibold">
@@ -193,31 +257,97 @@
             </div>
         </dialog>
 
-        <!-- Additional guidance for pre‑planning in the Western Cape -->
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Why Pre‑Plan in the Western Cape?</h2>
-        <p class="mb-4">Cape Town’s cemeteries have limited space. Pre‑planning gives you time to consider a burial plot or cremation, document your wishes and reduce uncertainty for your loved ones.</p>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Documents Required</h2>
-        <ul class="list-disc ml-6 space-y-2">
-            <li>Medical certificate of cause of death (Form BI‑1663)</li>
-            <li>Identity document of the deceased</li>
-            <li>Residential address and personal details</li>
-            <li>Any applicable funeral policy documents</li>
-        </ul>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Eco‑Friendly Options</h2>
-        <p class="mb-4">We support environmentally sensitive funerals by offering biodegradable or wooden coffins and avoiding metal or chemical glues, as recommended by the City of Cape Town.</p>
-        <h2 class="font-display text-2xl font-semibold mt-8 mb-4">Grief Support & Resources</h2>
-        <p class="mb-4">You don’t have to cope alone.  Professional helplines provide free, confidential support:</p>
-        <ul class="list-disc ml-6 space-y-2">
-            <li><strong>LifeLine South Africa</strong> – 24/7 counselling on 0861 322 322</li>
-            <li><strong>South African Depression & Anxiety Group (SADAG)</strong> – 0800 567 567</li>
-            <li><strong>Netcare Akeso Crisis Line</strong> – 0861 435 787</li>
-        </ul>
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="max-w-3xl mb-10">
+                    <p class="eyebrow text-xs font-bold mb-3" style="color:var(--muted-gold);">A clearer comparison</p>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold mb-5">What changes when you choose an independent parlour?</h2>
+                    <p class="text-lg">You are not simply giving something up. You are choosing how the policy value is used and who supports your family.</p>
+                </div>
+                <div class="rounded-sm overflow-hidden shadow-xl" style="background:var(--soft-cream); border:1px solid rgba(178,178,178,.45);">
+                    <table class="comparison-table w-full text-left">
+                        <thead style="background:var(--deep-blue); color:#FDFBF7;">
+                            <tr>
+                                <th>What matters</th>
+                                <th>Using an assigned provider</th>
+                                <th style="color:#E2CF96;">Choosing WS Engledoe & Sons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="What matters" class="font-bold">Policy value</td>
+                                <td data-label="Assigned provider">Benefits are commonly delivered through a set package.</td>
+                                <td data-label="WS Engledoe & Sons"><strong>We verify the payout</strong> and help apply it to the agreed funeral services.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="What matters" class="font-bold">Choice and upgrades</td>
+                                <td data-label="Assigned provider">Options may be limited to the provider’s standard package.</td>
+                                <td data-label="WS Engledoe & Sons"><strong>Your family discusses the details</strong>, including personal touches and optional upgrades.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="What matters" class="font-bold">Who assists you</td>
+                                <td data-label="Assigned provider">Support may move between branches or service teams.</td>
+                                <td data-label="WS Engledoe & Sons"><strong>A local family team</strong> guides you from the first call through the funeral.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="What matters" class="font-bold">Upfront payment</td>
+                                <td data-label="Assigned provider">Covered services are handled within the provider’s process.</td>
+                                <td data-label="WS Engledoe & Sons"><strong>ZERO out-of-pocket on covered services</strong> when the cession is approved and the payout is sufficient.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-        <p class="mt-8">Ready to start planning?  <a href="index.html#contact" class="text-muted-gold underline font-semibold">Contact our team</a> for a compassionate consultation or call <a href="tel:+27824949852" class="text-muted-gold underline font-semibold">082 49 49 852</a> any time.</p>
+        <section class="py-20 md:py-24" style="background:var(--deep-blue); color:#FDFBF7;">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="grid lg:grid-cols-2 gap-14 items-start">
+                    <div>
+                        <p class="eyebrow text-xs font-bold mb-3" style="color:var(--muted-gold);">Cession, made simple</p>
+                        <h2 class="font-display text-3xl md:text-5xl font-bold mb-6">We arrange for the insurer to pay the approved amount directly to us.</h2>
+                        <p class="text-lg leading-relaxed mb-5" style="color:#E5E1D8;">A cession is permission for the approved policy benefit to be paid to the funeral parlour providing the service. This means your family does not have to find the covered amount upfront and claim it back later.</p>
+                        <p class="leading-relaxed" style="color:#C9C8C3;">We explain the documents required, submit the request and keep you informed. You stay in control of the funeral arrangements while we manage the administrative process.</p>
+                    </div>
+                    <ol class="space-y-8">
+                        <li class="flex gap-5">
+                            <span class="step-number">01</span>
+                            <div><h3 class="font-display text-2xl font-bold mb-2">Call us first</h3><p style="color:#D7D5CF;">Share the insurer’s name and the policy details available to you.</p></div>
+                        </li>
+                        <li class="flex gap-5">
+                            <span class="step-number">02</span>
+                            <div><h3 class="font-display text-2xl font-bold mb-2">We verify the benefit</h3><p style="color:#D7D5CF;">Our team checks the policy status, payout and insurer requirements.</p></div>
+                        </li>
+                        <li class="flex gap-5">
+                            <span class="step-number">03</span>
+                            <div><h3 class="font-display text-2xl font-bold mb-2">You approve the arrangements</h3><p style="color:#D7D5CF;">We agree on services that fit the available cover and your family’s wishes.</p></div>
+                        </li>
+                        <li class="flex gap-5">
+                            <span class="step-number">04</span>
+                            <div><h3 class="font-display text-2xl font-bold mb-2">We handle the cession</h3><p style="color:#D7D5CF;">Once approved, the insurer pays the agreed benefit directly toward the funeral.</p></div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-24" style="background:var(--paper);">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <p class="eyebrow text-xs font-bold mb-4" style="color:var(--muted-gold);">Before you make a decision</p>
+                <h2 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-6">Let us check your policy at no obligation.</h2>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">One compassionate conversation can clarify your options and help protect your family from unnecessary financial pressure.</p>
+                <a href="tel:+27824949852" class="primary-cta inline-flex items-center justify-center px-8 py-4 rounded-md font-bold text-lg">
+                    <i data-lucide="phone-call" class="w-5 h-5 mr-3"></i>Speak to our family team
+                </a>
+                <p class="mt-5 font-bold">Available 24/7 on 082 49 49 852</p>
+                <p class="text-xs mt-6 max-w-2xl mx-auto" style="color:var(--stone);">We can only confirm cover after checking the policy with the insurer. Costs above the approved payout, optional upgrades and excluded services remain payable by the family.</p>
+            </div>
+        </section>
     </main>
     <footer class="py-10" style="background: var(--charcoal-grey); color: var(--soft-cream);">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2026 WS Engledoe & Sons Funerals.</p>
+            <p class="text-sm mt-2"><a href="privacy-policy.html" class="hover:underline" style="color:var(--stone);">Privacy Policy</a></p>
         </div>
     </footer>
     <script>

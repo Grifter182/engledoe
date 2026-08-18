@@ -95,6 +95,8 @@
             --charcoal-grey: #343F4B;
             --stone: #B2B2B2;
             --muted-gold: #C0B283;
+            --deep-blue: #233746;
+            --paper: #F4EFE5;
         }
         body {
             font-family: 'Lato', sans-serif;
@@ -124,6 +126,15 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(52,63,75,0.2);
         }
+        .btn-primary:focus-visible,
+        a:focus-visible,
+        button:focus-visible,
+        select:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--muted-gold);
+            outline-offset: 3px;
+        }
         .btn-secondary {
             background-color: var(--stone);
             color: var(--charcoal-grey);
@@ -142,10 +153,163 @@
             color: var(--charcoal-grey);
         }
         .hero-bg {
-            background-image: linear-gradient(rgba(52,63,75,0.6), rgba(52,63,75,0.8)), url('Hero.webp');
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background-image: linear-gradient(90deg, rgba(24,35,45,0.96) 0%, rgba(24,35,45,0.82) 48%, rgba(24,35,45,0.36) 100%), url('Hero.webp');
             background-size: cover;
-            background-position: center;
+            background-position: center 35%;
             background-attachment: fixed;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(115deg, transparent 0 63%, rgba(192,178,131,.2) 63.1% 63.4%, transparent 63.5%);
+            pointer-events: none;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            right: -7rem;
+            bottom: -8rem;
+            width: 24rem;
+            height: 24rem;
+            border: 1px solid rgba(192,178,131,.38);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3rem rgba(192,178,131,.06), 0 0 0 7rem rgba(192,178,131,.035);
+            pointer-events: none;
+        }
+        .hero-copy { animation: hero-reveal .8s ease-out both; }
+        .eyebrow {
+            color: var(--muted-gold);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+        }
+        .gold-rule { width: 4.5rem; height: 2px; background: var(--muted-gold); }
+        .hero-outline {
+            color: #FDFBF7;
+            border: 1px solid rgba(253,251,247,.45);
+            background: rgba(253,251,247,.08);
+            backdrop-filter: blur(8px);
+            transition: transform .25s ease, background-color .25s ease, border-color .25s ease;
+        }
+        .hero-outline:hover { transform: translateY(-2px); background: rgba(253,251,247,.16); border-color: var(--muted-gold); }
+        .trust-ribbon { background: var(--deep-blue); color: #FDFBF7; }
+        .trust-item + .trust-item { border-left: 1px solid rgba(192,178,131,.3); }
+        .section-shell { position: relative; overflow: hidden; }
+        .section-shell::before {
+            content: '';
+            position: absolute;
+            width: 25rem;
+            height: 25rem;
+            right: -14rem;
+            top: 7rem;
+            border-radius: 50%;
+            border: 1px solid rgba(192,178,131,.18);
+            pointer-events: none;
+        }
+        .service-grid { align-items: stretch; }
+        .service-card {
+            position: relative;
+            display: flex;
+            min-height: 22rem;
+            flex-direction: column;
+            padding: 2rem;
+            overflow: hidden;
+            border: 1px solid rgba(178,178,178,.35);
+            border-top: 3px solid var(--muted-gold);
+            background: var(--soft-cream);
+            box-shadow: 0 18px 42px rgba(35,55,70,.07);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+        .service-card:nth-child(even) { transform: translateY(2.5rem); }
+        .service-card:hover { transform: translateY(-.35rem); box-shadow: 0 25px 52px rgba(35,55,70,.14); border-color: rgba(192,178,131,.7); }
+        .service-card:nth-child(even):hover { transform: translateY(2.15rem); }
+        .service-number {
+            position: absolute;
+            right: 1.25rem;
+            top: .6rem;
+            color: rgba(192,178,131,.25);
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            line-height: 1;
+        }
+        .service-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2.25rem;
+            color: #FDFBF7;
+            background: var(--deep-blue);
+        }
+        .service-link { margin-top: auto; padding-top: 1.5rem; display: inline-flex; align-items: center; gap: .5rem; }
+        .legacy-image { position: relative; padding: 0 0 2rem 2rem; }
+        .legacy-image::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 70%;
+            height: 70%;
+            background: var(--muted-gold);
+        }
+        .legacy-image img { position: relative; z-index: 1; }
+        .legacy-stamp {
+            position: absolute;
+            z-index: 2;
+            right: -1rem;
+            bottom: .5rem;
+            width: 9rem;
+            height: 9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--deep-blue);
+            color: #FDFBF7;
+            border: 1px solid var(--muted-gold);
+            box-shadow: 0 16px 36px rgba(35,55,70,.22);
+        }
+        .legacy-metrics { border-top: 1px solid rgba(178,178,178,.5); border-bottom: 1px solid rgba(178,178,178,.5); }
+        .legacy-metric + .legacy-metric { border-left: 1px solid rgba(178,178,178,.5); }
+        .faq-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.25rem;
+            padding: 1.75rem 0;
+            border-bottom: 1px solid rgba(178,178,178,.5);
+        }
+        .faq-number { color: var(--muted-gold); font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+        .contact-panel {
+            position: relative;
+            background: var(--deep-blue);
+            color: #FDFBF7;
+            overflow: hidden;
+        }
+        .contact-panel::before {
+            content: '';
+            position: absolute;
+            left: -12rem;
+            bottom: -15rem;
+            width: 30rem;
+            height: 30rem;
+            border: 1px solid rgba(192,178,131,.22);
+            border-radius: 50%;
+        }
+        .contact-details > div { border-bottom: 1px solid rgba(253,251,247,.15); }
+        .contact-form { background: var(--soft-cream); border-top: 4px solid var(--muted-gold); }
+        .whatsapp-button { background: #315F50; transition: transform .25s ease, background-color .25s ease; }
+        .whatsapp-button:hover { background: #274D41; transform: translateY(-3px); }
+        @keyframes hero-reveal {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Dark mode overrides: when the body has the class `dark-mode` the CSS variables are redefined.  */
@@ -155,8 +319,21 @@
             --charcoal-grey: #F7F6F2;
             --stone: #6D6D6D;
             --muted-gold: #C4AA7B;
+            --deep-blue: #18232D;
+            --paper: #2C3540;
             background-color: var(--soft-cream);
             color: var(--charcoal-grey);
+        }
+        @media (max-width: 767px) {
+            .hero-bg { background-attachment: scroll; background-image: linear-gradient(rgba(24,35,45,.9), rgba(24,35,45,.88)), url('Hero.webp'); }
+            .trust-item + .trust-item { border-left: 0; border-top: 1px solid rgba(192,178,131,.3); }
+            .service-card:nth-child(even), .service-card:nth-child(even):hover { transform: none; }
+            .legacy-image { padding-left: 1rem; }
+            .legacy-stamp { width: 7rem; height: 7rem; right: -.25rem; }
+            .legacy-metric + .legacy-metric { border-left: 0; border-top: 1px solid rgba(178,178,178,.5); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
         }
     </style>
 </head>
@@ -219,165 +396,211 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-bg text-white py-24 md:py-40 min-h-screen flex items-center">
-            <div class="container mx-auto px-6 text-center">
-                <div class="max-w-4xl mx-auto">
-                    <h1 class="font-logo text-6xl md:text-8xl lg:text-9xl mb-6 leading-none" style="color: var(--soft-cream);">WS Engledoe & Sons</h1>
-                    <p class="text-xl md:text-2xl lg:text-3xl mb-4 font-light opacity-90" style="color: var(--soft-cream);">Guiding Western Cape families since 1955</p>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-80 leading-relaxed" style="color: var(--soft-cream);">Our family‑run funeral home in Salt River offers compassionate funeral, burial, cremation and parlour services across Cape Town and the Western Cape. We handle every detail with dignity and compassion so you can focus on your loved ones.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#contact" class="btn-primary px-8 py-4 rounded-full font-ui text-lg inline-flex items-center justify-center">
+        <section class="hero-bg text-white py-24 md:py-36 min-h-screen flex items-center">
+            <div class="container mx-auto px-6">
+                <div class="hero-copy max-w-4xl">
+                    <p class="eyebrow mb-5">Family-run in Cape Town since 1955</p>
+                    <div class="gold-rule mb-7"></div>
+                    <h1 class="font-logo text-5xl md:text-7xl lg:text-8xl mb-7 leading-none" style="color: #FDFBF7;">A steady hand when your family needs it most.</h1>
+                    <p class="text-lg md:text-xl max-w-2xl mb-9 leading-relaxed" style="color: #E7E2D8;">WS Engledoe & Sons provides compassionate funeral, burial, cremation and parlour services across Cape Town and the Western Cape. We handle every detail with dignity, so you can be present with the people you love.</p>
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+                        <a href="tel:+27824949852" class="px-8 py-4 rounded-md font-ui text-lg inline-flex items-center justify-center" style="background:var(--muted-gold); color:#202C35; box-shadow:0 12px 28px rgba(0,0,0,.2);">
                             <i data-lucide="phone" class="w-5 h-5 mr-3"></i>
-                            Call Now – 24/7
+                            Call 082 49 49 852
                         </a>
-                        <a href="#services" class="px-8 py-4 rounded-full font-ui text-lg border transition-all duration-300" style="background-color: rgba(253, 251, 247, 0.2); color: var(--soft-cream); border-color: rgba(253,251,247,0.3); backdrop-filter: blur(4px);">
+                        <a href="#services" class="hero-outline px-8 py-4 rounded-md font-ui text-lg inline-flex items-center justify-center">
                             Explore Services
                         </a>
-                        <!-- Added third call‑to‑action directing visitors to our pre‑planning guide -->
-                        <a href="pre-planning.html" class="px-8 py-4 rounded-full font-ui text-lg border transition-all duration-300" style="background-color: rgba(253, 251, 247, 0.2); color: var(--soft-cream); border-color: rgba(253,251,247,0.3); backdrop-filter: blur(4px);">
-                            Pre‑Planning Guide
+                        <a href="pre-planning.html" class="px-2 py-4 font-ui text-lg inline-flex items-center justify-center underline underline-offset-8" style="color:#FDFBF7;">
+                            Use an existing policy
                         </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-ribbon" aria-label="Key service assurances">
+            <div class="container mx-auto px-6 grid md:grid-cols-3">
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="clock-3" class="w-6 h-6 flex-shrink-0" style="color:var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">Available 24/7</strong><span class="text-sm" style="color:#C9C8C3;">Immediate, compassionate assistance</span></div>
+                </div>
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="map-pin" class="w-6 h-6 flex-shrink-0" style="color:var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">Rooted in Salt River</strong><span class="text-sm" style="color:#C9C8C3;">Serving families across the Western Cape</span></div>
+                </div>
+                <div class="trust-item py-7 md:px-8 flex items-center gap-4">
+                    <i data-lucide="hand-heart" class="w-6 h-6 flex-shrink-0" style="color:var(--muted-gold);"></i>
+                    <div><strong class="block font-display text-lg">Personal family care</strong><span class="text-sm" style="color:#C9C8C3;">One team guiding every detail</span></div>
                 </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-24" style="background: linear-gradient(to bottom, var(--soft-cream), #f8f6f2);">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="color: var(--charcoal-grey);">Our Services</h2>
-                    <p class="text-lg max-w-2xl mx-auto" style="color: var(--stone);">We offer comprehensive funeral services tailored to honour your loved one’s life and reflect Cape Town’s diverse cultures.</p>
+        <section id="services" class="section-shell py-24 md:py-32" style="background:var(--paper);">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="grid lg:grid-cols-2 gap-8 items-end mb-16">
+                    <div>
+                        <p class="eyebrow mb-4">How we support your family</p>
+                        <div class="gold-rule mb-6"></div>
+                        <h2 class="font-display text-4xl md:text-6xl font-bold leading-tight" style="color: var(--charcoal-grey);">Care for every part of the farewell.</h2>
+                    </div>
+                    <p class="text-lg max-w-xl lg:ml-auto leading-relaxed" style="color: var(--charcoal-grey);">From the first call through the day of the funeral, our team coordinates the practical details while respecting your family’s traditions, wishes and budget.</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-grid grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 lg:pb-10">
                     <!-- Service Card: Burial Services -->
-                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
-                        <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
-                            <i data-lucide="gem" class="w-8 h-8"></i>
+                    <article class="service-card">
+                        <span class="service-number" aria-hidden="true">01</span>
+                        <div class="service-icon">
+                            <i data-lucide="gem" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Burial Services</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">Dignified burials tailored to your family’s traditions, with guidance on cemetery selection and graveside services across the Western Cape.</p>
-                        <a href="services/burials.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
-                    </div>
+                        <h3 class="font-display text-2xl font-bold mb-4" style="color: var(--charcoal-grey);">Burial Services</h3>
+                        <p class="leading-relaxed" style="color: var(--charcoal-grey);">Dignified burials tailored to your traditions, with guidance on cemetery selection and graveside services across the Western Cape.</p>
+                        <a href="services/burials.html" class="service-link text-sm font-bold" style="color: var(--muted-gold);">Explore burial services <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    </article>
                     <!-- Service Card: Cremation Services -->
-                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
-                        <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
-                            <i data-lucide="flame" class="w-8 h-8"></i>
+                    <article class="service-card">
+                        <span class="service-number" aria-hidden="true">02</span>
+                        <div class="service-icon">
+                            <i data-lucide="flame" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Cremation Services</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">Affordable cremations that help preserve limited burial space in Cape Town, with respectful memorial and ash‑scattering options.</p>
-                        <a href="services/cremations.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
-                    </div>
+                        <h3 class="font-display text-2xl font-bold mb-4" style="color: var(--charcoal-grey);">Cremation Services</h3>
+                        <p class="leading-relaxed" style="color: var(--charcoal-grey);">Respectful cremations with flexible memorial, urn and ash-scattering options shaped around your family’s needs.</p>
+                        <a href="services/cremations.html" class="service-link text-sm font-bold" style="color: var(--muted-gold);">Explore cremation services <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    </article>
                     <!-- Service Card: Funeral Planning -->
-                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
-                        <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
-                            <i data-lucide="calendar-check" class="w-8 h-8"></i>
+                    <article class="service-card">
+                        <span class="service-number" aria-hidden="true">03</span>
+                        <div class="service-icon">
+                            <i data-lucide="calendar-check" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Funeral Planning</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">Complete planning for venues, catering and transport across Cape Town, ensuring a seamless farewell.</p>
-                        <a href="services/planning.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
-                    </div>
+                        <h3 class="font-display text-2xl font-bold mb-4" style="color: var(--charcoal-grey);">Funeral Planning</h3>
+                        <p class="leading-relaxed" style="color: var(--charcoal-grey);">Thoughtful coordination of venues, transport, catering and documentation for a seamless, personal farewell.</p>
+                        <a href="services/planning.html" class="service-link text-sm font-bold" style="color: var(--muted-gold);">Explore funeral planning <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    </article>
                     <!-- Service Card: Full Parlour Services -->
-                    <div class="p-8 rounded-2xl shadow-lg text-center hover:shadow-xl" style="background-color: var(--soft-cream); transition: all 0.3s;">
-                        <div class="text-white rounded-full p-5 w-20 h-20 mx-auto mb-6 flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal-grey) 0%, var(--stone) 100%);">
-                            <i data-lucide="users" class="w-8 h-8"></i>
+                    <article class="service-card">
+                        <span class="service-number" aria-hidden="true">04</span>
+                        <div class="service-icon">
+                            <i data-lucide="users" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="font-display text-xl font-bold mb-3" style="color: var(--charcoal-grey);">Full Parlour Services</h3>
-                        <p class="mb-3 leading-relaxed" style="color: var(--charcoal-grey);">On‑the‑day coordination and compassionate support so you can focus on your family.</p>
-                        <a href="services/parlour.html" class="text-sm font-bold" style="color: var(--muted-gold);">Learn More →</a>
-                    </div>
+                        <h3 class="font-display text-2xl font-bold mb-4" style="color: var(--charcoal-grey);">Full Parlour Services</h3>
+                        <p class="leading-relaxed" style="color: var(--charcoal-grey);">Calm, capable on-the-day coordination so your family can focus on being together and honouring your loved one.</p>
+                        <a href="services/parlour.html" class="service-link text-sm font-bold" style="color: var(--muted-gold);">Explore parlour services <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-24" style="background-color: var(--soft-cream);">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                        <img src="family.webp" alt="WS Engledoe & Sons team portrait" class="w-full h-auto transition-transform duration-700 hover:scale-105">
-                        <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(52,63,75,0.2), transparent);"></div>
+        <section id="about" class="py-24 md:py-32" style="background-color: var(--soft-cream);">
+            <div class="container mx-auto px-6 max-w-7xl grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-6">
+                    <div class="legacy-image">
+                        <div class="relative overflow-hidden shadow-2xl">
+                            <img src="family.webp" alt="WS Engledoe & Sons team portrait" class="w-full h-auto transition-transform duration-700 hover:scale-105">
+                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(35,55,70,.3), transparent 55%);"></div>
+                        </div>
+                        <div class="legacy-stamp text-center" aria-label="Serving families since 1955">
+                            <span class="font-display text-3xl font-bold">1955</span>
+                            <span class="eyebrow mt-1" style="font-size:.58rem; color:var(--muted-gold);">Our beginning</span>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--charcoal-grey);">A Legacy of Care Since 1955</h2>
+                <div class="lg:col-span-6 lg:pl-8">
+                    <p class="eyebrow mb-4">A family name built on service</p>
+                    <div class="gold-rule mb-6"></div>
+                    <h2 class="font-display text-4xl md:text-6xl font-bold mb-7 leading-tight" style="color: var(--charcoal-grey);">A legacy of care, passed from one generation to the next.</h2>
                     <p class="mb-6 text-lg leading-relaxed" style="color: var(--charcoal-grey);">Founded by William Sydney Engledoe in 1955, our family‑run funeral home has served Cape Town communities for over 70 years. From our premises in Salt River we care for families across the City Bowl, Southern and Northern Suburbs and the broader Western Cape. Our experienced team provides personalised support—whether you need immediate assistance or wish to plan ahead.</p>
-                    <ul class="space-y-2 mb-8">
-                        <li><strong>70+ years</strong> of service to the community</li>
-                        <li><strong>1 000+ families</strong> served with dignity</li>
-                        <li><strong>4.7 star</strong> Google rating for excellence</li>
-                    </ul>
+                    <div class="legacy-metrics grid sm:grid-cols-3 mb-9">
+                        <div class="legacy-metric py-5 sm:pr-4"><strong class="font-display text-3xl block">70+</strong><span class="text-sm">years of service</span></div>
+                        <div class="legacy-metric py-5 sm:px-4"><strong class="font-display text-3xl block">1 000+</strong><span class="text-sm">families served</span></div>
+                        <div class="legacy-metric py-5 sm:pl-4"><strong class="font-display text-3xl block">4.7</strong><span class="text-sm">Google rating</span></div>
+                    </div>
                     <!-- Redirect interested visitors to the new About page to learn more about our history and values -->
-                    <a href="about.html" class="btn-primary px-6 py-3 rounded-full font-ui">Learn More About Us</a>
+                    <a href="about.html" class="btn-primary px-7 py-4 rounded-md font-ui inline-flex items-center gap-3">Discover our family story <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="py-24" style="background: linear-gradient(to bottom, #f8f6f2, var(--soft-cream));">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" style="color: var(--charcoal-grey);">Frequently Asked Questions</h2>
-                    <p class="text-lg max-w-2xl mx-auto" style="color: var(--stone);">Answers to common questions about funeral arrangements and our services.</p>
+        <section id="faq" class="py-24 md:py-32" style="background:var(--paper);">
+            <div class="container mx-auto px-6 max-w-6xl grid lg:grid-cols-12 gap-14">
+                <div class="lg:col-span-5 lg:sticky lg:top-28 self-start">
+                    <p class="eyebrow mb-4">Clear answers, gently explained</p>
+                    <div class="gold-rule mb-6"></div>
+                    <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight" style="color: var(--charcoal-grey);">Questions families often ask us.</h2>
+                    <p class="text-lg leading-relaxed" style="color: var(--charcoal-grey);">You do not need to understand every detail before calling. Our team explains each step and helps you make one decision at a time.</p>
                 </div>
-                <div class="max-w-3xl mx-auto space-y-8">
+                <div class="lg:col-span-7">
                     <!-- Updated FAQ content based on local regulations and common questions -->
-                    <div>
-                        <h3 class="font-display text-xl font-semibold mb-2" style="color: var(--charcoal-grey);">Why choose cremation in Cape Town?</h3>
+                    <article class="faq-card">
+                        <span class="faq-number">01</span><div>
+                        <h3 class="font-display text-2xl font-semibold mb-3" style="color: var(--charcoal-grey);">Why choose cremation in Cape Town?</h3>
                         <p style="color: var(--charcoal-grey);">Cremation is an affordable option that helps address the shortage of burial space in Cape Town.  The City encourages families to consider cremation when it aligns with their beliefs.  We provide dignified cremation services with flexible memorial and ash‑scattering options.</p>
-                    </div>
-                    <div>
-                        <h3 class="font-display text-xl font-semibold mb-2" style="color: var(--charcoal-grey);">What documents are needed for a funeral?</h3>
+                        </div>
+                    </article>
+                    <article class="faq-card">
+                        <span class="faq-number">02</span><div>
+                        <h3 class="font-display text-2xl font-semibold mb-3" style="color: var(--charcoal-grey);">What documents are needed for a funeral?</h3>
                         <p style="color: var(--charcoal-grey);">We handle paperwork on your behalf.  You’ll typically need a doctor’s medical certificate of cause of death (BI‑1663) and identification and address details for the deceased.  Our team will advise you on any additional documents required.</p>
-                    </div>
-                    <div>
-                        <h3 class="font-display text-xl font-semibold mb-2" style="color: var(--charcoal-grey);">Do you offer eco‑friendly options?</h3>
+                        </div>
+                    </article>
+                    <article class="faq-card">
+                        <span class="faq-number">03</span><div>
+                        <h3 class="font-display text-2xl font-semibold mb-3" style="color: var(--charcoal-grey);">Do you offer eco‑friendly options?</h3>
                         <p style="color: var(--charcoal-grey);">Yes.  We can arrange environmentally friendly funerals using wooden coffins and avoiding metal or chemical glues to reduce environmental impact, as recommended by the City of Cape Town.</p>
-                    </div>
-                    <div>
-                        <h3 class="font-display text-xl font-semibold mb-2" style="color: var(--charcoal-grey);">Where can I find emotional support?</h3>
+                        </div>
+                    </article>
+                    <article class="faq-card">
+                        <span class="faq-number">04</span><div>
+                        <h3 class="font-display text-2xl font-semibold mb-3" style="color: var(--charcoal-grey);">Where can I find emotional support?</h3>
                         <p style="color: var(--charcoal-grey);">Losing someone can be overwhelming.  For confidential grief counselling, contact LifeLine South Africa on 0861 322 322, the South African Depression & Anxiety Group (0800 567 567) or the Netcare Akeso Crisis Line (0861 435 787).  We’re also here to support you.</p>
-                    </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24" style="background: linear-gradient(to bottom, var(--soft-cream), #f8f6f2);">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--charcoal-grey);">Contact & Availability</h2>
-                    <p class="mb-8 text-lg leading-relaxed" style="color: var(--charcoal-grey);">Our lines are open 24 hours. Reach out for immediate assistance or to discuss your needs.</p>
-                    <div class="space-y-6 mb-10">
-                        <div class="flex items-start p-4 rounded-xl shadow-sm" style="background-color: var(--soft-cream);">
-                            <i data-lucide="phone" class="w-6 h-6 mr-4 mt-1 flex-shrink-0"></i>
+        <section id="contact" class="contact-panel py-24 md:py-32">
+            <div class="container mx-auto px-6 max-w-7xl grid lg:grid-cols-2 gap-16 relative z-10">
+                <div class="contact-copy">
+                    <p class="eyebrow mb-4">Here whenever you need us</p>
+                    <div class="gold-rule mb-6"></div>
+                    <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight" style="color:#FDFBF7;">One call brings calm, clarity and practical help.</h2>
+                    <p class="mb-8 text-lg leading-relaxed" style="color:#D7D5CF;">Our lines are open 24 hours for immediate assistance, policy questions or a compassionate conversation about planning ahead.</p>
+                    <div class="contact-details mb-10">
+                        <div class="flex items-start py-5">
+                            <i data-lucide="phone" class="w-6 h-6 mr-4 mt-1 flex-shrink-0" style="color:var(--muted-gold);"></i>
                             <div>
                                 <div class="font-ui font-semibold mb-1">Call Our 24/7 Line</div>
-                                <a href="tel:+27824949852" class="transition-colors" style="color: var(--charcoal-grey);">082 49 49 852</a>
+                                <a href="tel:+27824949852" class="transition-colors text-lg" style="color:#FDFBF7;">082 49 49 852</a>
                             </div>
                         </div>
-                        <div class="flex items-start p-4 rounded-xl shadow-sm" style="background-color: var(--soft-cream);">
-                            <i data-lucide="mail" class="w-6 h-6 mr-4 mt-1 flex-shrink-0"></i>
+                        <div class="flex items-start py-5">
+                            <i data-lucide="mail" class="w-6 h-6 mr-4 mt-1 flex-shrink-0" style="color:var(--muted-gold);"></i>
                             <div>
                                 <div class="font-ui font-semibold mb-1">Email Us</div>
-                                <a href="mailto:v.engledoe@gmail.com" class="transition-colors" style="color: var(--charcoal-grey);">v.engledoe@gmail.com</a>
+                                <a href="mailto:v.engledoe@gmail.com" class="transition-colors" style="color:#FDFBF7;">v.engledoe@gmail.com</a>
                             </div>
                         </div>
-                        <div class="flex items-start p-4 rounded-xl shadow-sm" style="background-color: var(--soft-cream);">
-                            <i data-lucide="map-pin" class="w-6 h-6 mr-4 mt-1 flex-shrink-0"></i>
+                        <div class="flex items-start py-5">
+                            <i data-lucide="map-pin" class="w-6 h-6 mr-4 mt-1 flex-shrink-0" style="color:var(--muted-gold);"></i>
                             <div>
                                 <div class="font-ui font-semibold mb-1">Visit Us</div>
-                                <span style="color: var(--charcoal-grey);">12 Spencer Road, Salt River, Cape Town, 7925</span>
+                                <span style="color:#FDFBF7;">12 Spencer Road, Salt River, Cape Town, 7925</span>
                             </div>
                         </div>
                     </div>
-                    <div class="rounded-2xl overflow-hidden shadow-2xl">
-                        <iframe title="Map: 12 Spencer Road, Salt River, Cape Town" src="https://maps.google.com/maps?q=12%20Spencer%20Road,%20Salt%20River,%20Cape%20Town,%207925&z=15&output=embed" class="w-full h-64 md:h-96 border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="overflow-hidden shadow-2xl" style="border:1px solid rgba(192,178,131,.5);">
+                        <iframe title="Map: 12 Spencer Road, Salt River, Cape Town" src="https://maps.google.com/maps?q=12%20Spencer%20Road,%20Salt%20River,%20Cape%20Town,%207925&z=15&output=embed" class="w-full h-64 md:h-80 border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div>
-                    <form name="contact" method="POST" data-netlify="true" class="p-10 rounded-2xl shadow-xl" style="background-color: var(--soft-cream); border: 1px solid var(--stone);">
-                        <h3 class="font-display text-3xl font-bold mb-8" style="color: var(--charcoal-grey);">Send us a Message</h3>
+                    <form name="contact" method="POST" data-netlify="true" class="contact-form p-8 md:p-12 shadow-2xl">
+                        <p class="eyebrow mb-3">Send a private message</p>
+                        <h3 class="font-display text-3xl md:text-4xl font-bold mb-8" style="color: var(--charcoal-grey);">Tell us how we can help.</h3>
                         <input type="hidden" name="form-name" value="contact" />
                         <div style="opacity: 0; position: absolute; left: -9999px;">
                             <input type="text" name="honeypot" />
@@ -394,7 +617,7 @@
                             <label for="message" class="block font-ui font-semibold mb-3" style="color: var(--charcoal-grey);">Message *</label>
                             <textarea id="message" name="message" rows="6" required class="w-full p-4 rounded-xl resize-none" style="border: 1px solid var(--stone); background-color: var(--soft-cream); color: var(--charcoal-grey);" placeholder="Please share how we can assist you..."></textarea>
                         </div>
-                        <button type="submit" class="w-full btn-primary font-ui font-bold py-4 px-8 rounded-xl text-lg">Send Message</button>
+                        <button type="submit" class="w-full btn-primary font-ui font-bold py-4 px-8 rounded-md text-lg inline-flex items-center justify-center gap-3">Send Message <i data-lucide="send" class="w-5 h-5"></i></button>
                     </form>
                 </div>
             </div>
@@ -413,7 +636,7 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/27824949852" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/27824949852" target="_blank" rel="noopener" class="whatsapp-button fixed bottom-6 right-6 text-white p-4 rounded-full shadow-lg flex items-center justify-center" aria-label="Chat on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
         </svg>
