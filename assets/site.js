@@ -281,6 +281,13 @@
                 event.preventDefault();
                 toggleTheme();
             }
+
+            /* Printable guides: the print stylesheet strips the site chrome. */
+            var print = event.target && event.target.closest ? event.target.closest('[data-print-page]') : null;
+            if (print) {
+                event.preventDefault();
+                window.print();
+            }
         });
 
         document.addEventListener('change', function (event) {

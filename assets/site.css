@@ -457,6 +457,139 @@ summary:focus-visible {
 .legacy-metrics { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
 .legacy-metric + .legacy-metric { border-left: 1px solid var(--hairline); }
 
+/* --- Fleet gallery (home) ------------------------------------------------ */
+.fleet-band {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--deep-blue);
+    color: var(--on-dark);
+}
+.fleet-band::after {
+    content: '';
+    position: absolute;
+    left: -9rem;
+    top: -10rem;
+    width: 22rem;
+    height: 22rem;
+    border: 1px solid rgba(192, 178, 131, .3);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3rem rgba(192, 178, 131, .05);
+    pointer-events: none;
+    z-index: -1;
+}
+.fleet-band .fleet-lede { color: var(--on-dark-soft); }
+
+.fleet-grid { display: grid; gap: 1.25rem; }
+
+.fleet-figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    background: #16212B;
+    border: 1px solid rgba(192, 178, 131, .28);
+    aspect-ratio: 16 / 10;
+}
+.fleet-figure img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .9s ease;
+}
+.fleet-figure:hover img { transform: scale(1.045); }
+.fleet-figure figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 3.5rem 1.5rem 1.35rem;
+    /* Deep enough that the gold eyebrow stays legible over a bright sky. */
+    background: linear-gradient(to top, rgba(16, 25, 33, .94) 0%, rgba(16, 25, 33, .82) 38%, rgba(16, 25, 33, .5) 68%, transparent 100%);
+}
+.fleet-figure figcaption .fleet-caption-title {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: #FDFBF7;
+    margin-top: .35rem;
+}
+.fleet-figure figcaption .fleet-caption-note {
+    display: block;
+    margin-top: .3rem;
+    font-size: .875rem;
+    line-height: 1.6;
+    color: rgba(253, 251, 247, .74);
+}
+.fleet-figure--wide { aspect-ratio: 21 / 9; }
+
+@media (min-width: 1024px) {
+    .fleet-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .fleet-span-7 { grid-column: span 7; }
+    /* The 7-column figure sets the row height; its neighbour stretches to match. */
+    .fleet-span-5 { grid-column: span 5; aspect-ratio: auto; }
+    .fleet-span-12 { grid-column: span 12; }
+}
+@media (max-width: 640px) {
+    .fleet-figure, .fleet-figure--wide { aspect-ratio: 4 / 3; }
+    .fleet-figure figcaption { padding: 3rem 1.15rem 1.1rem; }
+}
+
+/* --- Download / guide card ----------------------------------------------- */
+.download-card {
+    display: grid;
+    gap: 1.75rem;
+    align-items: center;
+    padding: 2rem;
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--muted-gold);
+    box-shadow: var(--shadow-soft);
+}
+.download-card .download-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    flex-shrink: 0;
+    color: var(--muted-gold);
+    border: 1px solid var(--gold-faint);
+    background: var(--gold-faint);
+}
+.download-meta { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); }
+@media (min-width: 768px) {
+    .download-card { grid-template-columns: auto 1fr auto; padding: 2.25rem 2.5rem; }
+}
+
+/* --- Guide sheet (printable) --------------------------------------------- */
+.guide-sheet { display: grid; gap: 1rem; }
+.guide-step {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: stretch;
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.guide-step:hover { transform: translateY(-.2rem); box-shadow: var(--shadow-soft); border-color: rgba(192, 178, 131, .7); }
+.guide-step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--muted-gold);
+    color: #FFFFFF;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1;
+}
+.guide-step-body { padding: 1.35rem 1.6rem; }
+.guide-step-body h3 { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: .35rem; }
+.guide-step-body p { font-size: .975rem; line-height: 1.7; color: var(--charcoal-grey); }
+
+/* Print-only letterhead and sign-off, hidden on screen. */
+.print-only { display: none; }
+
 /* --- FAQ ----------------------------------------------------------------- */
 .faq-card {
     display: grid;
@@ -863,4 +996,109 @@ body.is-navigating .nav-progress { width: 82%; opacity: 1; }
         transition-duration: .01ms !important;
     }
     @view-transition { navigation: none; }
+}
+
+/* --- Print ---------------------------------------------------------------
+   Pages carrying .printable-guide print as a standalone branded sheet: the
+   site chrome drops away and the .print-only letterhead/sign-off take over, so
+   "Save as PDF" produces the same document as the downloadable PDF.
+   -------------------------------------------------------------------------- */
+@media print {
+    @page { size: A4; margin: 12mm 14mm; }
+
+    html, body {
+        background: #FFFFFF !important;
+        color: #343F4B !important;
+    }
+
+    .site-header,
+    .site-footer,
+    .whatsapp-button,
+    .skip-link,
+    .nav-progress,
+    .breadcrumb,
+    .no-print { display: none !important; }
+
+    .print-only { display: block !important; }
+
+    .printable-guide .page-hero,
+    .printable-guide .cta-band,
+    .printable-guide .related-strip,
+    .printable-guide section:not(.guide-print-section) { display: none !important; }
+
+    .printable-guide .guide-print-section {
+        display: block !important;
+        padding: 0 !important;
+        background: transparent !important;
+    }
+    .printable-guide .guide-print-section > .container {
+        max-width: none !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .print-letterhead {
+        border-bottom: 2.5px solid #C0B283;
+        padding-bottom: .6rem;
+        margin-bottom: 1.4rem;
+    }
+    .print-letterhead .print-brand {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 15pt;
+        letter-spacing: .02em;
+        color: #233746;
+    }
+    .print-letterhead .print-strap,
+    .print-signoff .print-strap {
+        font-size: 7.5pt;
+        font-weight: 700;
+        letter-spacing: .18em;
+        text-transform: uppercase;
+        color: #A2905F;
+    }
+    .print-signoff {
+        margin-top: 1.4rem;
+        padding-top: .8rem;
+        border-top: 2.5px solid #C0B283;
+        text-align: center;
+    }
+    .print-signoff .print-phone {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 16pt;
+        color: #233746;
+    }
+    .print-signoff .print-address { font-size: 7.5pt; color: #6B7280; }
+
+    .guide-sheet { gap: .5rem; page-break-inside: avoid; }
+    .guide-step {
+        page-break-inside: avoid;
+        border: .5pt solid #DAD5CB;
+        background: #F4EFE5 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .guide-step-number {
+        background: #C0B283 !important;
+        color: #FFFFFF !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .guide-step-body { padding: .55rem .75rem; }
+    .guide-step-body h3 { font-size: 10pt; margin-bottom: .1rem; }
+    .guide-step-body p { font-size: 9pt; line-height: 1.45; }
+
+    .print-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 22pt;
+        line-height: 1.1;
+        color: #343F4B;
+        margin-bottom: .5rem;
+    }
+    .print-intro { font-size: 9.5pt; line-height: 1.55; margin-bottom: 1.1rem; }
+
+    a[href]::after { content: none !important; }
 }

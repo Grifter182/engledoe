@@ -1,2 +1,5 @@
 # Local Netlify folder
 .netlify
+
+# Local font cache for tools/generate-guide-pdf.mjs
+tools/.fonts/

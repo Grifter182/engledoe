@@ -105,4 +105,11 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Guides -->
+  <url>
+    <loc>https://wsefunerals.netlify.app/guides/when-a-loved-one-passes.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
