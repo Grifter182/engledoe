@@ -292,6 +292,15 @@ summary:focus-visible {
     .mobile-panel { display: none; }
 }
 
+/* Seven nav items only just fit at the breakpoint, so tighten them until
+   there is room to breathe again. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .primary-nav { gap: 1.05rem; }
+    .nav-link { font-size: .875rem; }
+    .header-tools { gap: .55rem; }
+    .nav-cta { padding: .55rem .85rem; font-size: .82rem; }
+}
+
 /* --- Hero (home pages) ---------------------------------------------------- */
 .hero-bg {
     position: relative;
@@ -914,7 +923,10 @@ html.dark-mode .site-footer { background-color: #1B222B; color: #F7F6F2; }
     .footer-base { flex-direction: row; align-items: center; }
 }
 @media (min-width: 1024px) {
-    .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 3rem; }
+    .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; }
+}
+@media (min-width: 1280px) {
+    .footer-grid { grid-template-columns: 1.5fr 1fr 1.15fr 1fr 1.25fr; gap: 2.75rem; }
 }
 
 /* --- WhatsApp floating button ------------------------------------------- */
@@ -1101,4 +1113,98 @@ body.is-navigating .nav-progress { width: 82%; opacity: 1; }
     .print-intro { font-size: 9.5pt; line-height: 1.55; margin-bottom: 1.1rem; }
 
     a[href]::after { content: none !important; }
+}
+
+/* --- Guide articles (funeral cover cluster) ------------------------------ */
+/* Editorial two-column layout: prose with a rail that follows on desktop. */
+.guide-layout { display: grid; gap: 3rem; align-items: start; }
+.guide-rail { display: grid; gap: 1.5rem; align-content: start; }
+@media (min-width: 1024px) {
+    .guide-layout { grid-template-columns: minmax(0, 1fr) 19.5rem; gap: 4rem; }
+    .guide-rail { position: sticky; top: calc(var(--header-h) + 1.75rem); }
+}
+
+.rail-heading {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 1rem;
+}
+.rail-card a { color: var(--charcoal-grey); text-decoration: none; font-size: .95rem; line-height: 1.55; }
+.rail-card a:hover { color: var(--muted-gold); text-decoration: underline; text-underline-offset: 3px; }
+
+/* The one-paragraph answer that opens a guide. */
+.answer-box {
+    padding: 1.6rem 1.85rem;
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--muted-gold);
+    box-shadow: var(--shadow-soft);
+}
+.answer-box p { font-size: 1.1rem; line-height: 1.7; margin: 0; }
+
+/* Jump links to the sections of a long guide. */
+.jump-nav { display: flex; flex-wrap: wrap; gap: .6rem; }
+.jump-link {
+    padding: .5rem 1rem;
+    border: 1px solid var(--hairline);
+    background: var(--soft-cream);
+    color: var(--charcoal-grey);
+    font-size: .85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color .25s ease, color .25s ease, background-color .25s ease;
+}
+.jump-link:hover { border-color: var(--muted-gold); color: var(--muted-gold); background: var(--paper); }
+
+/* Accuracy footnote and other small print. */
+.fineprint { font-size: .85rem; line-height: 1.7; color: var(--stone); }
+.fineprint-rule { border: 0; border-top: 1px solid var(--hairline); margin: 3rem 0 1.5rem; }
+
+/* Guide index cards (hub page) */
+.guide-index { display: grid; gap: 1.25rem; }
+@media (min-width: 768px) { .guide-index { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.guide-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.85rem;
+    background: var(--soft-cream);
+    border: 1px solid var(--hairline);
+    border-top: 3px solid var(--muted-gold);
+    box-shadow: var(--shadow-soft);
+    color: var(--charcoal-grey);
+    text-decoration: none;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.guide-card:hover { transform: translateY(-.3rem); box-shadow: var(--shadow-lift); border-color: rgba(192, 178, 131, .7); }
+.guide-card h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; line-height: 1.3; margin-bottom: .65rem; }
+.guide-card p { line-height: 1.7; font-size: .975rem; }
+.guide-card-meta {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: auto;
+    padding-top: 1.15rem;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+}
+
+/* Definition rows used for document lists and at-a-glance facts. */
+.fact-list { list-style: none; padding: 0; margin: 0; }
+.fact-list > li { padding: 1.1rem 0; border-bottom: 1px solid var(--hairline); }
+.fact-list > li:last-child { border-bottom: 0; }
+.fact-list dt, .fact-list strong.fact-term { display: block; font-weight: 700; margin-bottom: .3rem; }
+.fact-list dd { margin: 0; line-height: 1.7; }
+
+/* Where a table or list interrupts an article, the prose that resumes below
+   still needs the separation that .prose h2:first-child otherwise strips. */
+.prose-continues > h2:first-child {
+    margin-top: 3.25rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--hairline);
 }
